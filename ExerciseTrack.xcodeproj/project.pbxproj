@@ -15,6 +15,9 @@
 		76E2B46724A06F21009F412D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76E2B46524A06F21009F412D /* LaunchScreen.storyboard */; };
 		76E2B47224A06F21009F412D /* ExerciseTrackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2B47124A06F21009F412D /* ExerciseTrackTests.swift */; };
 		76E2B47D24A06F21009F412D /* ExerciseTrackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2B47C24A06F21009F412D /* ExerciseTrackUITests.swift */; };
+		76E2B48C24A0712A009F412D /* ExerciseRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2B48B24A0712A009F412D /* ExerciseRecord.swift */; };
+		76E2B48E24A0713A009F412D /* ExerciseRecordContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2B48D24A0713A009F412D /* ExerciseRecordContainer.swift */; };
+		76E2B49224A074CC009F412D /* TestDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2B49124A074CC009F412D /* TestDataGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		76E2B47824A06F21009F412D /* ExerciseTrackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExerciseTrackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E2B47C24A06F21009F412D /* ExerciseTrackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTrackUITests.swift; sourceTree = "<group>"; };
 		76E2B47E24A06F21009F412D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76E2B48B24A0712A009F412D /* ExerciseRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRecord.swift; sourceTree = "<group>"; };
+		76E2B48D24A0713A009F412D /* ExerciseRecordContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRecordContainer.swift; sourceTree = "<group>"; };
+		76E2B49124A074CC009F412D /* TestDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +105,12 @@
 		76E2B45924A06F20009F412D /* ExerciseTrack */ = {
 			isa = PBXGroup;
 			children = (
+				76E2B49024A074B2009F412D /* Util */,
+				76E2B48F24A07495009F412D /* View */,
+				76E2B48A24A07110009F412D /* Model */,
 				76E2B45A24A06F20009F412D /* AppDelegate.swift */,
 				76E2B45C24A06F20009F412D /* SceneDelegate.swift */,
-				76E2B45E24A06F20009F412D /* ContentView.swift */,
 				76E2B46024A06F21009F412D /* Assets.xcassets */,
-				76E2B46524A06F21009F412D /* LaunchScreen.storyboard */,
 				76E2B46824A06F21009F412D /* Info.plist */,
 				76E2B46224A06F21009F412D /* Preview Content */,
 			);
@@ -134,6 +141,32 @@
 				76E2B47E24A06F21009F412D /* Info.plist */,
 			);
 			path = ExerciseTrackUITests;
+			sourceTree = "<group>";
+		};
+		76E2B48A24A07110009F412D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				76E2B48B24A0712A009F412D /* ExerciseRecord.swift */,
+				76E2B48D24A0713A009F412D /* ExerciseRecordContainer.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		76E2B48F24A07495009F412D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				76E2B46524A06F21009F412D /* LaunchScreen.storyboard */,
+				76E2B45E24A06F20009F412D /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		76E2B49024A074B2009F412D /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				76E2B49124A074CC009F412D /* TestDataGenerator.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,8 +301,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				76E2B45B24A06F20009F412D /* AppDelegate.swift in Sources */,
+				76E2B48E24A0713A009F412D /* ExerciseRecordContainer.swift in Sources */,
 				76E2B45D24A06F20009F412D /* SceneDelegate.swift in Sources */,
+				76E2B48C24A0712A009F412D /* ExerciseRecord.swift in Sources */,
 				76E2B45F24A06F20009F412D /* ContentView.swift in Sources */,
+				76E2B49224A074CC009F412D /* TestDataGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
