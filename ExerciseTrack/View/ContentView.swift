@@ -15,27 +15,16 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(exerciseRecordContainer.records) { record in
-                HStack {
-                    Text(record.exerciseEmojiIcon)
-                    VStack(alignment: .leading) {
-                        Text(record.exerciseType).font(.headline)
-                        Text(record.exerciseName).font(.subheadline).foregroundColor(.secondary)
-                    }
-                    Spacer()
-                    Text(String(format:"%.1f", record.todayWeight)).font(.title)
+                NavigationLink(
+                destination: ExerciseDetail(exerciseRecord: record)) {
+                    ExerciseCell(exerciseRecord:record)
                 }
-                .navigationBarTitle("Exercise")
-                .navigationBarItems(
-                    trailing: Button(
-                        action: self.addNewExercise,
-                        label: {Text("Add")}
-                ))
-            }
+            }.navigationBarItems(
+                trailing: NavigationLink(destination: NewExerciseView(exerciseRecordContainer)) {
+                    Text("Add")
+                }
+            ).navigationBarTitle("Exercise")
         }
-    }
-    
-    func addNewExercise() {
-        print("new item is added!")
     }
 }
 

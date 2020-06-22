@@ -18,6 +18,9 @@
 		76E2B48C24A0712A009F412D /* ExerciseRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2B48B24A0712A009F412D /* ExerciseRecord.swift */; };
 		76E2B48E24A0713A009F412D /* ExerciseRecordContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2B48D24A0713A009F412D /* ExerciseRecordContainer.swift */; };
 		76E2B49224A074CC009F412D /* TestDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2B49124A074CC009F412D /* TestDataGenerator.swift */; };
+		76E8129A24A0B95000E7F044 /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E8129924A0B95000E7F044 /* ExerciseCell.swift */; };
+		76E8129C24A0C32700E7F044 /* ExerciseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E8129B24A0C32700E7F044 /* ExerciseDetail.swift */; };
+		76E8129E24A0CC1500E7F044 /* NewExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E8129D24A0CC1500E7F044 /* NewExerciseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,9 @@
 		76E2B48B24A0712A009F412D /* ExerciseRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRecord.swift; sourceTree = "<group>"; };
 		76E2B48D24A0713A009F412D /* ExerciseRecordContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRecordContainer.swift; sourceTree = "<group>"; };
 		76E2B49124A074CC009F412D /* TestDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataGenerator.swift; sourceTree = "<group>"; };
+		76E8129924A0B95000E7F044 /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
+		76E8129B24A0C32700E7F044 /* ExerciseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetail.swift; sourceTree = "<group>"; };
+		76E8129D24A0CC1500E7F044 /* NewExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExerciseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +163,9 @@
 			children = (
 				76E2B46524A06F21009F412D /* LaunchScreen.storyboard */,
 				76E2B45E24A06F20009F412D /* ContentView.swift */,
+				76E8129924A0B95000E7F044 /* ExerciseCell.swift */,
+				76E8129B24A0C32700E7F044 /* ExerciseDetail.swift */,
+				76E8129D24A0CC1500E7F044 /* NewExerciseView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -302,10 +311,13 @@
 			files = (
 				76E2B45B24A06F20009F412D /* AppDelegate.swift in Sources */,
 				76E2B48E24A0713A009F412D /* ExerciseRecordContainer.swift in Sources */,
+				76E8129C24A0C32700E7F044 /* ExerciseDetail.swift in Sources */,
 				76E2B45D24A06F20009F412D /* SceneDelegate.swift in Sources */,
 				76E2B48C24A0712A009F412D /* ExerciseRecord.swift in Sources */,
 				76E2B45F24A06F20009F412D /* ContentView.swift in Sources */,
+				76E8129A24A0B95000E7F044 /* ExerciseCell.swift in Sources */,
 				76E2B49224A074CC009F412D /* TestDataGenerator.swift in Sources */,
+				76E8129E24A0CC1500E7F044 /* NewExerciseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
