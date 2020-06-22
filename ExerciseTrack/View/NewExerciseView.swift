@@ -9,6 +9,11 @@
 import SwiftUI
 
 struct NewExerciseView: View {
+    
+    @EnvironmentObject var exerciseRecordContainer : ExerciseRecordContainer
+    
+    @Binding var rootIsActive : Bool
+    
     @State internal var newExerciseRecordIcon : String = ""
     @State internal var newExerciseRecordType : String = ""
     @State internal var newExerciseRecordName : String = ""
@@ -45,12 +50,22 @@ struct NewExerciseView: View {
     }
     
     func addNewExercise() {
-        
+        let todayWeight = Double(newExerciseRecordTodayWeight) ?? 0
+        print("add new exercise record! icon: \(newExerciseRecordIcon), type: \(newExerciseRecordType), name: \(newExerciseRecordName), wight: \(newExerciseRecordTodayWeight)")
+        self.exerciseRecordContainer.records.append(
+            ExerciseRecord(
+                exerciseEmojiIcon: newExerciseRecordIcon,
+                exerciseType: newExerciseRecordType,
+                exerciseName: newExerciseRecordName,
+                todayWeight: todayWeight
+            )
+        )
+        self.rootIsActive = false
     }
 }
 
-struct NewExerciseView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewExerciseView()
-    }
-}
+//struct NewExerciseView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NewExerciseView()
+//    }
+//}

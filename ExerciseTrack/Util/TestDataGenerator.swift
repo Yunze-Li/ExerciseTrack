@@ -22,4 +22,8 @@ class TestDataGenerator {
             ExerciseRecord(exerciseEmojiIcon:"🏋️", exerciseType:"Gym", exerciseName:"strength training 1 hour", todayWeight: 83.3),
             ExerciseRecord(exerciseEmojiIcon:"🚴‍♀️", exerciseType:"Bicycle", exerciseName:"30min biking", todayWeight: 83.1)]
     }
+    
+    func getTestExerciseRecordContainer() -> ExerciseRecordContainer {
+        return ExerciseRecordContainer()
+    }
 }

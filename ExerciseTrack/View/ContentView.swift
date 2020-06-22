@@ -10,7 +10,9 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var exerciseRecordContainer = ExerciseRecordContainer()
+    @EnvironmentObject var exerciseRecordContainer : ExerciseRecordContainer
+    
+    @State var isActive : Bool = false
     
     var body: some View {
         NavigationView {
@@ -18,9 +20,9 @@ struct ContentView: View {
                 NavigationLink(
                 destination: ExerciseDetail(exerciseRecord: record)) {
                     ExerciseCell(exerciseRecord:record)
-                }
+                }.isDetailLink(false)
             }.navigationBarItems(
-                trailing: NavigationLink(destination: NewExerciseView(exerciseRecordContainer)) {
+                trailing: NavigationLink(destination: NewExerciseView(rootIsActive: self.$isActive), isActive: self.$isActive) {
                     Text("Add")
                 }
             ).navigationBarTitle("Exercise")
