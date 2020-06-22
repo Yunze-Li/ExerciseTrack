@@ -8,10 +8,11 @@
 
 import Foundation
 
+// Value of binding must be value tupe, which is enum or struct
 struct ExerciseRecord: Identifiable {
-    let id = UUID()
-    let exerciseEmojiIcon: String
-    let exerciseType: String
-    let exerciseName: String
-    let todayWeight: Double
+    let id: UUID
+    var exerciseEmojiIcon: String
+    var exerciseType: String
+    var exerciseName: String
+    var todayWeight: Double
 }

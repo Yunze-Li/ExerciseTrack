@@ -9,11 +9,7 @@
 import SwiftUI
 
 struct NewExerciseView: View {
-    
     @EnvironmentObject var exerciseRecordContainer : ExerciseRecordContainer
-    
-    @Binding var rootIsActive : Bool
-    
     @State internal var newExerciseRecordIcon : String = ""
     @State internal var newExerciseRecordType : String = ""
     @State internal var newExerciseRecordName : String = ""
@@ -24,22 +20,26 @@ struct NewExerciseView: View {
                 HStack(alignment: .center) {
                     Text("Icon")
                     Spacer()
-                    TextField("Exercise Icon", text: $newExerciseRecordIcon).lineLimit(1).multilineTextAlignment(.trailing)
+                    TextField("Exercise Icon", text: $newExerciseRecordIcon)
+                        .lineLimit(1).multilineTextAlignment(.trailing)
                 }
                 HStack(alignment: .center) {
                     Text("Type")
                     Spacer()
-                    TextField("Exercise Type", text: $newExerciseRecordType).lineLimit(1).multilineTextAlignment(.trailing)
+                    TextField("Exercise Type", text: $newExerciseRecordType)
+                        .lineLimit(1).multilineTextAlignment(.trailing)
                 }
                 HStack(alignment: .center){
                     Text("Name")
                     Spacer()
-                    TextField("Exercise Name", text: $newExerciseRecordName).lineLimit(1).multilineTextAlignment(.trailing)
+                    TextField("Exercise Name", text: $newExerciseRecordName)
+                        .lineLimit(1).multilineTextAlignment(.trailing)
                 }
                 HStack(alignment: .center) {
                     Text("Today's Weight")
                     Spacer()
-                    TextField("Weight", text: $newExerciseRecordTodayWeight).lineLimit(1).multilineTextAlignment(.trailing)
+                    TextField("Weight", text: $newExerciseRecordTodayWeight)
+                        .lineLimit(1).multilineTextAlignment(.trailing)
                 }
             }
             .navigationBarTitle(Text("Exercise Detail"))
@@ -54,18 +54,18 @@ struct NewExerciseView: View {
         print("add new exercise record! icon: \(newExerciseRecordIcon), type: \(newExerciseRecordType), name: \(newExerciseRecordName), wight: \(newExerciseRecordTodayWeight)")
         self.exerciseRecordContainer.records.append(
             ExerciseRecord(
+                id: .init(),
                 exerciseEmojiIcon: newExerciseRecordIcon,
                 exerciseType: newExerciseRecordType,
                 exerciseName: newExerciseRecordName,
                 todayWeight: todayWeight
             )
         )
-        self.rootIsActive = false
     }
 }
 
-//struct NewExerciseView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NewExerciseView()
-//    }
-//}
+struct NewExerciseView_Previews: PreviewProvider {
+    static var previews: some View {
+        NewExerciseView()
+    }
+}
