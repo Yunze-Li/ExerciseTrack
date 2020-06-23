@@ -27,6 +27,10 @@ struct ContentView: View {
             ).navigationBarTitle("Exercise")
         }
     }
+    
+    func deleteRecord() {
+        // TODO: implement delete function
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

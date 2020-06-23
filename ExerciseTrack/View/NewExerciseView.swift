@@ -10,6 +10,8 @@ import SwiftUI
 
 struct NewExerciseView: View {
     
+    @Environment(\.presentationMode) var presentation
+    
     @ObservedObject var container: ExerciseRecordContainer = .shared
     
     @State internal var newExerciseRecordIcon : String = ""
@@ -18,38 +20,43 @@ struct NewExerciseView: View {
     @State internal var newExerciseRecordTodayWeight : String = ""
     
     var body: some View {
-        NavigationView {
-            List {
+        Form {
+            Section(header: Text("Create New Exercise").font(.subheadline)) {
                 HStack(alignment: .center) {
                     Text("Icon")
                     Spacer()
-                    TextField("Exercise Icon", text: $newExerciseRecordIcon)
+                    TextField("exercise icon", text: $newExerciseRecordIcon)
                         .lineLimit(1).multilineTextAlignment(.trailing)
                 }
                 HStack(alignment: .center) {
                     Text("Type")
                     Spacer()
-                    TextField("Exercise Type", text: $newExerciseRecordType)
+                    TextField("exercise type", text: $newExerciseRecordType)
                         .lineLimit(1).multilineTextAlignment(.trailing)
                 }
                 HStack(alignment: .center){
                     Text("Name")
                     Spacer()
-                    TextField("Exercise Name", text: $newExerciseRecordName)
-                        .lineLimit(1).multilineTextAlignment(.trailing)
-                }
-                HStack(alignment: .center) {
-                    Text("Today's Weight")
-                    Spacer()
-                    TextField("Weight", text: $newExerciseRecordTodayWeight)
+                    TextField("exercise name", text: $newExerciseRecordName)
                         .lineLimit(1).multilineTextAlignment(.trailing)
                 }
             }
-            .navigationBarTitle(Text("Exercise Detail"))
-            .navigationBarItems(trailing: Button(action: addNewExercise) {
-                Text("Done")
-            })
-        }
+            
+            Section(header: Text("Today's Weight").font(.subheadline))  {
+                HStack {
+                    TextField("weight", text: $newExerciseRecordTodayWeight)
+                        .lineLimit(1).multilineTextAlignment(.trailing)
+                        .keyboardType(.numbersAndPunctuation)
+                }
+            }
+            
+            Section {
+                Button("Save") {
+                    self.addNewExercise()
+                    self.presentation.wrappedValue.dismiss()
+                }
+            }
+        }.navigationBarTitle(Text("Exercise Detail"))
     }
     
     func addNewExercise() {
