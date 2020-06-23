@@ -9,6 +9,9 @@
 import Foundation
 
 final class ExerciseRecordContainer: ObservableObject {
+    
+    static let shared = ExerciseRecordContainer()
+    
     @Published var records : [ExerciseRecord] = [
         .init(id: .init(), exerciseEmojiIcon:"🏃‍♂️", exerciseType:"Insanity", exerciseName:"05 - Pure Cardio", todayWeight: 83.5),
         .init(id: .init(), exerciseEmojiIcon:"🏊‍♀️", exerciseType:"Swim", exerciseName:"swimming 3 km", todayWeight: 83.4),

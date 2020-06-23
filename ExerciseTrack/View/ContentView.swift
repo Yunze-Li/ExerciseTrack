@@ -10,11 +10,11 @@ import SwiftUI
 
 struct ContentView: View {
 
-    let exerciseRecordContainer = TestDataGenerator().getTestExerciseRecordContainer()
+    @ObservedObject var container: ExerciseRecordContainer = .shared
     
     var body: some View {
         NavigationView {
-            List(exerciseRecordContainer.records) { record in
+            List(container.records) { record in
                 NavigationLink(
                 destination: ExerciseDetail(exerciseRecord: record)) {
                     ExerciseCell(exerciseRecord:record)
