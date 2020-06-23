@@ -9,15 +9,16 @@
 import SwiftUI
 
 struct ContentView: View {
-
+    
     @ObservedObject var container: ExerciseRecordContainer = .shared
     
     var body: some View {
         NavigationView {
-            List(container.records) { record in
-                NavigationLink(
-                destination: ExerciseDetail(exerciseRecord: record)) {
-                    ExerciseCell(exerciseRecord:record)
+            List {
+                ForEach(container.records.indexed(), id: \.1.id) { index, record in
+                    NavigationLink(destination: ExerciseDetail(record: self.$container.records[index])) {
+                        ExerciseCell(exerciseRecord:record)
+                    }
                 }
             }.navigationBarItems(
                 trailing: NavigationLink(destination: NewExerciseView()) {
@@ -31,5 +32,11 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+extension Sequence {
+    func indexed() -> Array<(offset: Int, element: Element)> {
+        return Array(enumerated())
     }
 }
