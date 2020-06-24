@@ -19,7 +19,7 @@ struct ContentView: View {
                     NavigationLink(destination: ExerciseDetail(record: self.$container.records[index])) {
                         ExerciseCell(exerciseRecord:record)
                     }
-                }
+                }.onDelete(perform: deleteRecord(at:))
             }.navigationBarItems(
                 trailing: NavigationLink(destination: NewExerciseView()) {
                     Text("Add")
@@ -28,8 +28,8 @@ struct ContentView: View {
         }
     }
     
-    func deleteRecord() {
-        // TODO: implement delete function
+    func deleteRecord(at offsets: IndexSet) {
+        container.records.remove(atOffsets: offsets)
     }
 }
 

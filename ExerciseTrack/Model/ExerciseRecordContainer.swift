@@ -30,4 +30,28 @@ final class ExerciseRecordContainer: ObservableObject {
     func addNewRecord(exerciseRecord: ExerciseRecord) {
         records.append(exerciseRecord)
     }
+    
+    /*
+     * Remove record in container by index
+     */
+    func removeRecord(index: Int) {
+        records.remove(at: index)
+    }
+    
+    /*
+     * Remove record in container by index
+     */
+    func removeRecord(id: UUID) {
+        var targetIndex = -1
+        for (index, element) in records.enumerated() {
+            if element.id == id {
+                targetIndex = index
+            }
+        }
+        if targetIndex >= 0 {
+            removeRecord(index: targetIndex)
+        } else {
+            print("record id \(id) is not found!")
+        }
+    }
 }
