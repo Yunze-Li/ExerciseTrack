@@ -14,13 +14,17 @@ struct ExerciseDetail: View {
     
     @Binding var record: ExerciseRecord
     
+    let exerciseEmojiIcons: [String] = ExerciseIconProvider.provideAvailableExerciseEmojiIcon()
+    
     var body: some View {
         Form {
-            Section(header: Text("Edit Exercise").font(.subheadline)) {
+            Section(header: Text("Exercise Detail").font(.subheadline)) {
                 HStack {
-                    Text("Icon")
-                    Spacer()
-                    Text(record.exerciseEmojiIcon)
+                    Picker("Icon", selection:$record.exerciseEmojiIcon) {
+                        ForEach(0 ..< exerciseEmojiIcons.count) { index in
+                            Text(self.exerciseEmojiIcons[index]).tag(self.exerciseEmojiIcons[index])
+                        }
+                    }
                 }
                 HStack {
                     Text("Type")
@@ -38,9 +42,11 @@ struct ExerciseDetail: View {
             
             Section(header: Text("Today's Weight").font(.subheadline))  {
                 HStack {
-                    Stepper(value: $record.todayWeight, step: 0.1) {
-                        Text("\(record.todayWeight, specifier: "%.1f")")
-                    }
+                    Text("Weight")
+                    Spacer()
+                    TextField(record.todayWeight, text: $record.todayWeight)
+                        .lineLimit(1).multilineTextAlignment(.trailing)
+                        .keyboardType(.decimalPad)
                 }
             }
             
@@ -49,7 +55,7 @@ struct ExerciseDetail: View {
                     self.presentation.wrappedValue.dismiss()
                 }
             }
-        }.navigationBarTitle(Text("Exercise Detail"))
+        }.navigationBarTitle(Text("Exercise Detail"), displayMode: .inline)
     }
 }
 
@@ -62,7 +68,9 @@ struct ExerciseDetail_Previews: PreviewProvider {
         @State var testRecord = TestDataGenerator().getTestExerciseRecord()
         
         var body: some View {
-            ExerciseDetail(record: $testRecord)
+            NavigationView {
+                ExerciseDetail(record: $testRecord)
+            }
         }
     }
 }

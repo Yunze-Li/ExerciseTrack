@@ -33,12 +33,6 @@ struct ContentView: View {
     }
 }
 
-extension Sequence {
-    func indexed() -> Array<(offset: Int, element: Element)> {
-        return Array(enumerated())
-    }
-}
-
 // Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

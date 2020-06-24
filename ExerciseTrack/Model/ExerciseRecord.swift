@@ -15,5 +15,9 @@ struct ExerciseRecord: Identifiable {
     var exerciseEmojiIcon: String
     var exerciseType: String
     var exerciseName: String
-    var todayWeight: Double
+    var todayWeight: String
+    
+    func getWeightValue() -> Double {
+        return Double(todayWeight)!
+    }
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		763306DA24A31C92003E5818 /* TimeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763306D924A31C92003E5818 /* TimeUtil.swift */; };
+		763306DC24A35772003E5818 /* ExerciseIconProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763306DB24A35772003E5818 /* ExerciseIconProvider.swift */; };
+		763306DE24A35AD1003E5818 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763306DD24A35AD1003E5818 /* Extension.swift */; };
 		76E2B45B24A06F20009F412D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2B45A24A06F20009F412D /* AppDelegate.swift */; };
 		76E2B45D24A06F20009F412D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2B45C24A06F20009F412D /* SceneDelegate.swift */; };
 		76E2B45F24A06F20009F412D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2B45E24A06F20009F412D /* ContentView.swift */; };
@@ -43,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		763306D924A31C92003E5818 /* TimeUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUtil.swift; sourceTree = "<group>"; };
+		763306DB24A35772003E5818 /* ExerciseIconProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseIconProvider.swift; sourceTree = "<group>"; };
+		763306DD24A35AD1003E5818 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		76E2B45724A06F20009F412D /* ExerciseTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExerciseTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E2B45A24A06F20009F412D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76E2B45C24A06F20009F412D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 			children = (
 				76E2B48B24A0712A009F412D /* ExerciseRecord.swift */,
 				76E2B48D24A0713A009F412D /* ExerciseRecordContainer.swift */,
+				763306DB24A35772003E5818 /* ExerciseIconProvider.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 			children = (
 				76E2B49124A074CC009F412D /* TestDataGenerator.swift */,
 				763306D924A31C92003E5818 /* TimeUtil.swift */,
+				763306DD24A35AD1003E5818 /* Extension.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -315,7 +321,9 @@
 				76E2B45B24A06F20009F412D /* AppDelegate.swift in Sources */,
 				76E2B48E24A0713A009F412D /* ExerciseRecordContainer.swift in Sources */,
 				76E8129C24A0C32700E7F044 /* ExerciseDetail.swift in Sources */,
+				763306DE24A35AD1003E5818 /* Extension.swift in Sources */,
 				76E2B45D24A06F20009F412D /* SceneDelegate.swift in Sources */,
+				763306DC24A35772003E5818 /* ExerciseIconProvider.swift in Sources */,
 				76E2B48C24A0712A009F412D /* ExerciseRecord.swift in Sources */,
 				76E2B45F24A06F20009F412D /* ContentView.swift in Sources */,
 				76E8129A24A0B95000E7F044 /* ExerciseCell.swift in Sources */,

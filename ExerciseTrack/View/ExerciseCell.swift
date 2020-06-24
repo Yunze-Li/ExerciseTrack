@@ -22,7 +22,7 @@ struct ExerciseCell: View {
                 Text(exerciseRecord.exerciseName).font(.subheadline).foregroundColor(.secondary)
             }
             Spacer()
-            Text(String(format:"%.1f", exerciseRecord.todayWeight)).font(.callout)
+            Text(exerciseRecord.todayWeight).font(.callout)
         }
     }
 }

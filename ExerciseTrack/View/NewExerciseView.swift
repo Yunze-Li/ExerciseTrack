@@ -20,38 +20,37 @@ struct NewExerciseView: View {
     @State internal var newExerciseRecordName : String = ""
     @State internal var newExerciseRecordTodayWeight : String = ""
     
-    // TODO: move this to separate file
-    private var exerciseIconOptions = ["🏃‍♂️", "⛹", "🧘‍♂️", "🏋️", "🚴‍♀️", "🏊‍♀️"]
+    let exerciseEmojiIcons: [String] = ExerciseIconProvider.provideAvailableExerciseEmojiIcon()
     
     var body: some View {
         Form {
             Section(header: Text("Create New Exercise").font(.subheadline)) {
                 HStack {
-                    Picker(selection: $newExerciseRecordIcon, label: Text("Icon").foregroundColor(.black)) {
-                        ForEach(0..<exerciseIconOptions.count) {index in
-                            Text(self.exerciseIconOptions[index])
+                    Picker("Icon", selection: $newExerciseRecordIcon) {
+                        ForEach(0 ..< exerciseEmojiIcons.count) { index in
+                            Text(self.exerciseEmojiIcons[index]).tag(self.exerciseEmojiIcons[index])
                         }
                     }
                 }
                 HStack {
                     Text("Type")
                     Spacer()
-                    TextField("exercise type", text: $newExerciseRecordType)
+                    TextField("enter exercise type", text: $newExerciseRecordType)
                         .lineLimit(1).multilineTextAlignment(.trailing)
                 }
                 HStack {
                     Text("Name")
                     Spacer()
-                    TextField("exercise name", text: $newExerciseRecordName)
+                    TextField("enter exercise name", text: $newExerciseRecordName)
                         .lineLimit(1).multilineTextAlignment(.trailing)
                 }
             }
             
             Section(header: Text("Today's Weight").font(.subheadline))  {
                 HStack {
-                    TextField("weight", text: $newExerciseRecordTodayWeight)
+                    TextField("enter your weight", text: $newExerciseRecordTodayWeight)
                         .lineLimit(1).multilineTextAlignment(.trailing)
-                        .keyboardType(.numbersAndPunctuation)
+                        .keyboardType(.decimalPad)
                 }
             }
             
@@ -61,11 +60,10 @@ struct NewExerciseView: View {
                     self.presentation.wrappedValue.dismiss()
                 }
             }
-        }.navigationBarTitle(Text("Exercise Detail"))
+        }.navigationBarTitle(Text("Exercise Detail"), displayMode: .inline)
     }
     
     func addNewExercise() {
-        let todayWeight = Double(newExerciseRecordTodayWeight) ?? 0
         print("add new exercise record! icon: \(newExerciseRecordIcon), type: \(newExerciseRecordType), name: \(newExerciseRecordName), wight: \(newExerciseRecordTodayWeight)")
         self.container.addNewRecord(exerciseRecord: ExerciseRecord(
             id: .init(),
@@ -73,13 +71,15 @@ struct NewExerciseView: View {
             exerciseEmojiIcon: newExerciseRecordIcon,
             exerciseType: newExerciseRecordType,
             exerciseName: newExerciseRecordName,
-            todayWeight: todayWeight
+            todayWeight: newExerciseRecordTodayWeight
         ))
     }
 }
 
 struct NewExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        NewExerciseView()
+        NavigationView {
+            NewExerciseView()
+        }
     }
 }
