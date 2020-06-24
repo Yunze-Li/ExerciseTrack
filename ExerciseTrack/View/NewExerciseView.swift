@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+// TODO: merge this with Exercise Detail view
 struct NewExerciseView: View {
     
     @Environment(\.presentationMode) var presentation
@@ -19,22 +20,26 @@ struct NewExerciseView: View {
     @State internal var newExerciseRecordName : String = ""
     @State internal var newExerciseRecordTodayWeight : String = ""
     
+    // TODO: move this to separate file
+    private var exerciseIconOptions = ["🏃‍♂️", "⛹", "🧘‍♂️", "🏋️", "🚴‍♀️", "🏊‍♀️"]
+    
     var body: some View {
         Form {
             Section(header: Text("Create New Exercise").font(.subheadline)) {
-                HStack(alignment: .center) {
-                    Text("Icon")
-                    Spacer()
-                    TextField("exercise icon", text: $newExerciseRecordIcon)
-                        .lineLimit(1).multilineTextAlignment(.trailing)
+                HStack {
+                    Picker(selection: $newExerciseRecordIcon, label: Text("Icon").foregroundColor(.black)) {
+                        ForEach(0..<exerciseIconOptions.count) {index in
+                            Text(self.exerciseIconOptions[index])
+                        }
+                    }
                 }
-                HStack(alignment: .center) {
+                HStack {
                     Text("Type")
                     Spacer()
                     TextField("exercise type", text: $newExerciseRecordType)
                         .lineLimit(1).multilineTextAlignment(.trailing)
                 }
-                HStack(alignment: .center){
+                HStack {
                     Text("Name")
                     Spacer()
                     TextField("exercise name", text: $newExerciseRecordName)

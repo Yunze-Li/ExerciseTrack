@@ -24,7 +24,7 @@ struct ContentView: View {
                 trailing: NavigationLink(destination: NewExerciseView()) {
                     Text("Add")
                 }
-            ).navigationBarTitle("Exercise")
+            ).navigationBarTitle("Exercise Tracker")
         }
     }
     
@@ -33,14 +33,17 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-
 extension Sequence {
     func indexed() -> Array<(offset: Int, element: Element)> {
         return Array(enumerated())
+    }
+}
+
+// Preview
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        let testContainer = ExerciseRecordContainer()
+        testContainer.addAllRecords(exerciseRecordList: TestDataGenerator().getTestExerciseRecordList())
+        return ContentView(container: testContainer)
     }
 }
