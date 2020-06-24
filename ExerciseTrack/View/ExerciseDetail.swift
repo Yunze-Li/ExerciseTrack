@@ -65,7 +65,7 @@ struct ExerciseDetail_Previews: PreviewProvider {
     }
     
     struct PreviewWrapper: View {
-        @State var testRecord = TestDataGenerator().getTestExerciseRecord()
+        @State var testRecord = TestUtil().getTestExerciseRecord()
         
         var body: some View {
             NavigationView {

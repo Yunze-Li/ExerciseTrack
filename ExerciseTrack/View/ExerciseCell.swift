@@ -29,6 +29,6 @@ struct ExerciseCell: View {
 
 struct ExerciseCell_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseCell(exerciseRecord:TestDataGenerator().getTestExerciseRecord())
+        ExerciseCell(exerciseRecord:TestUtil().getTestExerciseRecord())
     }
 }

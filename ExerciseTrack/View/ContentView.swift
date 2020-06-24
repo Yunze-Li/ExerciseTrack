@@ -37,7 +37,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let testContainer = ExerciseRecordContainer()
-        testContainer.addAllRecords(exerciseRecordList: TestDataGenerator().getTestExerciseRecordList())
+        testContainer.addAllRecords(exerciseRecordList: TestUtil().getTestExerciseRecordList())
         return ContentView(container: testContainer)
     }
 }

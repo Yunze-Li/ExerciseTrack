@@ -8,7 +8,7 @@
 
 import Foundation
 
-// Value of binding must be value tupe, which is enum or struct
+// Value of binding must be value type, which is enum or struct
 struct ExerciseRecord: Identifiable {
     let id: UUID
     let date: Date

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TestDataGenerator {
+class TestUtil {
     
     func getTestExerciseRecord() -> ExerciseRecord {
         return ExerciseRecord(id: .init(), date: .init(), exerciseEmojiIcon:"🏃‍♂️", exerciseType:"Insanity", exerciseName:"05 - Pure Cardio", todayWeight: "83.5")
