@@ -62,15 +62,14 @@ struct NewExerciseView: View {
     func addNewExercise() {
         let todayWeight = Double(newExerciseRecordTodayWeight) ?? 0
         print("add new exercise record! icon: \(newExerciseRecordIcon), type: \(newExerciseRecordType), name: \(newExerciseRecordName), wight: \(newExerciseRecordTodayWeight)")
-        self.container.records.append(
-            ExerciseRecord(
-                id: .init(),
-                exerciseEmojiIcon: newExerciseRecordIcon,
-                exerciseType: newExerciseRecordType,
-                exerciseName: newExerciseRecordName,
-                todayWeight: todayWeight
-            )
-        )
+        self.container.addNewRecord(exerciseRecord: ExerciseRecord(
+            id: .init(),
+            date: .init(),
+            exerciseEmojiIcon: newExerciseRecordIcon,
+            exerciseType: newExerciseRecordType,
+            exerciseName: newExerciseRecordName,
+            todayWeight: todayWeight
+        ))
     }
 }
 

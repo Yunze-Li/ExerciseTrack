@@ -16,7 +16,7 @@ struct ExerciseDetail: View {
     
     var body: some View {
         Form {
-            Section(header: Text("Exercise").font(.subheadline)) {
+            Section(header: Text("Edit Exercise").font(.subheadline)) {
                 HStack {
                     Text("Icon")
                     Spacer()

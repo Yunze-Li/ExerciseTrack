@@ -11,6 +11,7 @@ import Foundation
 // Value of binding must be value tupe, which is enum or struct
 struct ExerciseRecord: Identifiable {
     let id: UUID
+    let date: Date
     var exerciseEmojiIcon: String
     var exerciseType: String
     var exerciseName: String

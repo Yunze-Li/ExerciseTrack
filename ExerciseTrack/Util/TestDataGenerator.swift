@@ -11,6 +11,6 @@ import Foundation
 class TestDataGenerator {
     
     func getTestExerciseRecord() -> ExerciseRecord {
-        return ExerciseRecord(id: .init(), exerciseEmojiIcon:"🏃‍♂️", exerciseType:"Insanity", exerciseName:"05 - Pure Cardio", todayWeight: 83.5)
+        return ExerciseRecord(id: .init(), date: .init(), exerciseEmojiIcon:"🏃‍♂️", exerciseType:"Insanity", exerciseName:"05 - Pure Cardio", todayWeight: 83.5)
     }
 }
