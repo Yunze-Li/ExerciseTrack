@@ -11,6 +11,8 @@
 		763306DA24A31C92003E5818 /* TimeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763306D924A31C92003E5818 /* TimeUtil.swift */; };
 		763306DC24A35772003E5818 /* ExerciseIconProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763306DB24A35772003E5818 /* ExerciseIconProvider.swift */; };
 		763306DE24A35AD1003E5818 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763306DD24A35AD1003E5818 /* Extension.swift */; };
+		76CF1CFD24A46B1C002A632D /* ExerciseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CF1CFC24A46B1C002A632D /* ExerciseMapper.swift */; };
+		76CF1D0024A46B70002A632D /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CF1CFF24A46B70002A632D /* RealmManager.swift */; };
 		76E2B45B24A06F20009F412D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2B45A24A06F20009F412D /* AppDelegate.swift */; };
 		76E2B45D24A06F20009F412D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2B45C24A06F20009F412D /* SceneDelegate.swift */; };
 		76E2B45F24A06F20009F412D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2B45E24A06F20009F412D /* ContentView.swift */; };
@@ -25,6 +27,7 @@
 		76E8129A24A0B95000E7F044 /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E8129924A0B95000E7F044 /* ExerciseCell.swift */; };
 		76E8129C24A0C32700E7F044 /* ExerciseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E8129B24A0C32700E7F044 /* ExerciseDetail.swift */; };
 		76E8129E24A0CC1500E7F044 /* NewExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E8129D24A0CC1500E7F044 /* NewExerciseView.swift */; };
+		76FB7A1924A3B2F600474085 /* ExerciseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FB7A1824A3B2F600474085 /* ExerciseModel.swift */; };
 		D24A02330792E9A50BCF0C53 /* Pods_ExerciseTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1D26F3C7881FB13460CB73 /* Pods_ExerciseTrack.framework */; };
 		DC87D707D5F9718E1581A5FF /* Pods_ExerciseTrack_ExerciseTrackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F1FE7A55F2D93D3422DCC0 /* Pods_ExerciseTrack_ExerciseTrackUITests.framework */; };
 /* End PBXBuildFile section */
@@ -52,6 +55,8 @@
 		763306D924A31C92003E5818 /* TimeUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUtil.swift; sourceTree = "<group>"; };
 		763306DB24A35772003E5818 /* ExerciseIconProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseIconProvider.swift; sourceTree = "<group>"; };
 		763306DD24A35AD1003E5818 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		76CF1CFC24A46B1C002A632D /* ExerciseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseMapper.swift; sourceTree = "<group>"; };
+		76CF1CFF24A46B70002A632D /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		76E2B45724A06F20009F412D /* ExerciseTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExerciseTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E2B45A24A06F20009F412D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76E2B45C24A06F20009F412D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +77,7 @@
 		76E8129924A0B95000E7F044 /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		76E8129B24A0C32700E7F044 /* ExerciseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetail.swift; sourceTree = "<group>"; };
 		76E8129D24A0CC1500E7F044 /* NewExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExerciseView.swift; sourceTree = "<group>"; };
+		76FB7A1824A3B2F600474085 /* ExerciseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModel.swift; sourceTree = "<group>"; };
 		7F1D26F3C7881FB13460CB73 /* Pods_ExerciseTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExerciseTrack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80FB4D48E2B5B8FC8CEF0BC4 /* Pods-ExerciseTrackTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExerciseTrackTests.debug.xcconfig"; path = "Target Support Files/Pods-ExerciseTrackTests/Pods-ExerciseTrackTests.debug.xcconfig"; sourceTree = "<group>"; };
 		82F1FE7A55F2D93D3422DCC0 /* Pods_ExerciseTrack_ExerciseTrackUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExerciseTrack_ExerciseTrackUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +128,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		76CF1CFE24A46B4D002A632D /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				76CF1CFF24A46B70002A632D /* RealmManager.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		76E2B44E24A06F20009F412D = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +161,7 @@
 		76E2B45924A06F20009F412D /* ExerciseTrack */ = {
 			isa = PBXGroup;
 			children = (
+				76CF1CFE24A46B4D002A632D /* Realm */,
 				76E2B49024A074B2009F412D /* Util */,
 				76E2B48F24A07495009F412D /* View */,
 				76E2B48A24A07110009F412D /* Model */,
@@ -188,9 +203,11 @@
 		76E2B48A24A07110009F412D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				76FB7A1A24A3B74300474085 /* Mapper */,
 				76E2B48B24A0712A009F412D /* ExerciseRecord.swift */,
 				76E2B48D24A0713A009F412D /* ExerciseRecordContainer.swift */,
 				763306DB24A35772003E5818 /* ExerciseIconProvider.swift */,
+				76FB7A1824A3B2F600474085 /* ExerciseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -215,6 +232,14 @@
 				763306DD24A35AD1003E5818 /* Extension.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		76FB7A1A24A3B74300474085 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				76CF1CFC24A46B1C002A632D /* ExerciseMapper.swift */,
+			);
+			path = Mapper;
 			sourceTree = "<group>";
 		};
 		B460BB53C8085DA50813E553 /* Frameworks */ = {
@@ -486,13 +511,16 @@
 			files = (
 				76E2B45B24A06F20009F412D /* AppDelegate.swift in Sources */,
 				76E2B48E24A0713A009F412D /* ExerciseRecordContainer.swift in Sources */,
+				76CF1D0024A46B70002A632D /* RealmManager.swift in Sources */,
 				76E8129C24A0C32700E7F044 /* ExerciseDetail.swift in Sources */,
 				763306DE24A35AD1003E5818 /* Extension.swift in Sources */,
 				76E2B45D24A06F20009F412D /* SceneDelegate.swift in Sources */,
+				76FB7A1924A3B2F600474085 /* ExerciseModel.swift in Sources */,
 				763306DC24A35772003E5818 /* ExerciseIconProvider.swift in Sources */,
 				76E2B48C24A0712A009F412D /* ExerciseRecord.swift in Sources */,
 				76E2B45F24A06F20009F412D /* ContentView.swift in Sources */,
 				76E8129A24A0B95000E7F044 /* ExerciseCell.swift in Sources */,
+				76CF1CFD24A46B1C002A632D /* ExerciseMapper.swift in Sources */,
 				76E2B49224A074CC009F412D /* TestUtil.swift in Sources */,
 				763306DA24A31C92003E5818 /* TimeUtil.swift in Sources */,
 				76E8129E24A0CC1500E7F044 /* NewExerciseView.swift in Sources */,

@@ -33,11 +33,11 @@ struct ContentView: View {
     }
 }
 
-// Preview
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        let testContainer = ExerciseRecordContainer()
-        testContainer.addAllRecords(exerciseRecordList: TestUtil().getTestExerciseRecordList())
-        return ContentView(container: testContainer)
-    }
-}
+//// Preview
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let testContainer = ExerciseRecordContainer()
+//        testContainer.addAllRecords(exerciseRecordList: TestUtil().getTestExerciseRecordList())
+//        return ContentView(container: testContainer)
+//    }
+//}

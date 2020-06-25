@@ -10,18 +10,27 @@ import Foundation
 
 final class ExerciseRecordContainer: ObservableObject {
     
-    static let shared = ExerciseRecordContainer()
+    static let shared = ExerciseRecordContainer(realmManager: RealmManager())
+    private var realmManager: RealmManager
     
     /*
      * Initialize new container with records
      */
     @Published internal var records : [ExerciseRecord] = []
     
+    init(realmManager: RealmManager) {
+        self.realmManager = realmManager
+        records = realmManager.getExerciseRecordFromRealm()
+    }
+    
     /*
      * Add new record to container
      */
     func addNewRecord(exerciseRecord: ExerciseRecord) {
         records.append(exerciseRecord)
+        let exerciseMapper = ExerciseMapper()
+        let model = exerciseMapper.mapExerciseRecordToModel(record: exerciseRecord)
+        realmManager.addExerciseModelToRealm(model: model)
     }
     
     /*
@@ -41,7 +50,7 @@ final class ExerciseRecordContainer: ObservableObject {
     /*
      * Remove record in container by index
      */
-    func removeRecord(id: UUID) {
+    func removeRecord(id: String) {
         var targetIndex = -1
         for (index, element) in records.enumerated() {
             if element.id == id {
