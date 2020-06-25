@@ -10,7 +10,8 @@ import Foundation
 
 class ExerciseMapper {
     
-    func mapExerciseModelToRecord(model: ExerciseModel) -> ExerciseRecord {
+    // mapping ExerciseModel to ExerciseRecord
+    func mapExerciseModelToRecord(_ model: ExerciseModel) -> ExerciseRecord {
         return ExerciseRecord.init(
             id: model.id,
             date: model.date,
@@ -21,7 +22,8 @@ class ExerciseMapper {
         )
     }
     
-    func mapExerciseRecordToModel(record: ExerciseRecord) -> ExerciseModel {
+    // mapping ExerciseRecord to ExerciseModel
+    func mapExerciseRecordToModel(_ record: ExerciseRecord) -> ExerciseModel {
         let model = ExerciseModel()
         model.id = record.id
         model.date = record.date

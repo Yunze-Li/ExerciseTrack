@@ -65,11 +65,11 @@ struct ExerciseDetail_Previews: PreviewProvider {
     }
     
     struct PreviewWrapper: View {
-        @State var testRecord = TestUtil().getTestExerciseRecord()
+        @State var previewRecord = PreviewUtil().getPreviewExerciseRecord()
         
         var body: some View {
             NavigationView {
-                ExerciseDetail(record: $testRecord)
+                ExerciseDetail(record: $previewRecord)
             }
         }
     }

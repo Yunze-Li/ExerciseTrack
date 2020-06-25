@@ -8,19 +8,19 @@
 
 import Foundation
 
+// This is a container using byu SwiftUI to observe data change between views, it holds
+// an implementation of ExerciseDataRepository and update at same time
 final class ExerciseRecordContainer: ObservableObject {
     
-    static let shared = ExerciseRecordContainer(realmManager: RealmManager())
-    private var realmManager: RealmManager
-    
     /*
-     * Initialize new container with records
+     * Initialize with records data and exerciseDateRepository
      */
+    private var exerciseDateRepository: ExerciseDataRepository
     @Published internal var records : [ExerciseRecord] = []
     
-    init(realmManager: RealmManager) {
-        self.realmManager = realmManager
-        records = realmManager.getExerciseRecordFromRealm()
+    init(exerciseDateRepository: ExerciseDataRepository) {
+        self.exerciseDateRepository = exerciseDateRepository
+        self.records = self.exerciseDateRepository.getExerciseRecords()
     }
     
     /*
@@ -28,9 +28,7 @@ final class ExerciseRecordContainer: ObservableObject {
      */
     func addNewRecord(exerciseRecord: ExerciseRecord) {
         records.append(exerciseRecord)
-        let exerciseMapper = ExerciseMapper()
-        let model = exerciseMapper.mapExerciseRecordToModel(record: exerciseRecord)
-        realmManager.addExerciseModelToRealm(model: model)
+        exerciseDateRepository.addExerciseRecord(newExerciseRecord: exerciseRecord)
     }
     
     /*
@@ -38,17 +36,20 @@ final class ExerciseRecordContainer: ObservableObject {
      */
     func addAllRecords(exerciseRecordList: [ExerciseRecord]) {
         records.append(contentsOf: exerciseRecordList)
+        exerciseDateRepository.addAllExerciseRecord(newExerciseRecordList: exerciseRecordList)
     }
     
     /*
      * Remove record in container by index
      */
     func removeRecord(index: Int) {
+        let target = records[index]
         records.remove(at: index)
+        exerciseDateRepository.removeExerciseRecordByItem(targetExerciseRecord: target)
     }
     
     /*
-     * Remove record in container by index
+     * Remove record in container by id
      */
     func removeRecord(id: String) {
         var targetIndex = -1
@@ -60,7 +61,7 @@ final class ExerciseRecordContainer: ObservableObject {
         if targetIndex >= 0 {
             removeRecord(index: targetIndex)
         } else {
-            print("record id \(id) is not found!")
+            NSLog("record id \(id) is not found!")
         }
     }
 }

@@ -2,7 +2,7 @@
 //  ExerciseRecord.swift
 //  ExerciseTrack
 //
-//  Created by Yunze Li on 2020/6/22.
+//  Created by Yunze Li on 25/06/2020.
 //  Copyright © 2020 Arctos. All rights reserved.
 //
 

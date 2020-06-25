@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var container: ExerciseRecordContainer = .shared
+    @ObservedObject var container: ExerciseRecordContainer
     
     var body: some View {
         NavigationView {
@@ -21,7 +21,7 @@ struct ContentView: View {
                     }
                 }.onDelete(perform: deleteRecord(at:))
             }.navigationBarItems(
-                trailing: NavigationLink(destination: NewExerciseView()) {
+                trailing: NavigationLink(destination: NewExerciseView(container: container)) {
                     Text("Add")
                 }
             ).navigationBarTitle("Exercise Tracker")
@@ -30,14 +30,21 @@ struct ContentView: View {
     
     func deleteRecord(at offsets: IndexSet) {
         container.records.remove(atOffsets: offsets)
+        // TODO: pass index here to delete from realm
     }
 }
 
-//// Preview
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let testContainer = ExerciseRecordContainer()
-//        testContainer.addAllRecords(exerciseRecordList: TestUtil().getTestExerciseRecordList())
-//        return ContentView(container: testContainer)
-//    }
-//}
+// Preview
+class PreviewExerciseDataRepository: ExerciseDataRepository {
+    func addExerciseRecord(newExerciseRecord: ExerciseRecord) {}
+    func addAllExerciseRecord(newExerciseRecordList: [ExerciseRecord]) {}
+    func removeExerciseRecordByItem(targetExerciseRecord: ExerciseRecord) {}
+    func removeExerciseRecordById(id: String) {}
+    func getExerciseRecords() -> [ExerciseRecord] { return PreviewUtil().getPreviewExerciseRecords() }
+}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        let testContainer = ExerciseRecordContainer(exerciseDateRepository: PreviewExerciseDataRepository())
+        return ContentView(container: testContainer)
+    }
+}

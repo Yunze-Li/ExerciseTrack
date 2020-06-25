@@ -13,7 +13,7 @@ struct NewExerciseView: View {
     
     @Environment(\.presentationMode) var presentation
     
-    @ObservedObject var container: ExerciseRecordContainer = .shared
+    @ObservedObject var container: ExerciseRecordContainer
     
     @State internal var newExerciseRecordIcon : String = ""
     @State internal var newExerciseRecordType : String = ""
@@ -66,7 +66,7 @@ struct NewExerciseView: View {
     func addNewExercise() {
         print("add new exercise record! icon: \(newExerciseRecordIcon), type: \(newExerciseRecordType), name: \(newExerciseRecordName), wight: \(newExerciseRecordTodayWeight)")
         self.container.addNewRecord(exerciseRecord: ExerciseRecord(
-            id: .init(),
+            id: UUID().uuidString,
             date: .init(),
             exerciseEmojiIcon: newExerciseRecordIcon,
             exerciseType: newExerciseRecordType,
@@ -76,10 +76,19 @@ struct NewExerciseView: View {
     }
 }
 
+// Preview
 struct NewExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            NewExerciseView()
+        PreviewWrapper()
+    }
+    
+    struct PreviewWrapper: View {
+        @ObservedObject var previewContainer = ExerciseRecordContainer(exerciseDateRepository: PreviewExerciseDataRepository())
+        
+        var body: some View {
+            NavigationView {
+                NewExerciseView(container: previewContainer)
+            }
         }
     }
 }
