@@ -7,16 +7,19 @@ target 'ExerciseTrack' do
 
   # Pods for ExerciseTrack
   pod 'RealmSwift'
+  pod 'SwiftLint'
 
   target 'ExerciseTrackTests' do
     inherit! :search_paths
     # Pods for testing
     pod 'RealmSwift'
+    pod 'SwiftLint'
   end
 
   target 'ExerciseTrackUITests' do
     # Pods for testing
     pod 'RealmSwift'
+    pod 'SwiftLint'
   end
 
 end
