@@ -40,12 +40,21 @@ final class ExerciseRecordContainer: ObservableObject {
     }
     
     /*
+     * Remove record in container by indexSet
+     */
+    func removeRecord(offsets: IndexSet) {
+        for index in offsets {
+            exerciseDateRepository.removeExerciseRecordById(id: records[index].id)
+        }
+        records.remove(atOffsets: offsets)
+    }
+    
+    /*
      * Remove record in container by index
      */
     func removeRecord(index: Int) {
-        let target = records[index]
         records.remove(at: index)
-        exerciseDateRepository.removeExerciseRecordByItem(targetExerciseRecord: target)
+        exerciseDateRepository.removeExerciseRecordById(id: records[index].id)
     }
     
     /*

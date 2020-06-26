@@ -14,8 +14,6 @@ protocol ExerciseDataRepository {
     
     func addAllExerciseRecord(newExerciseRecordList: [ExerciseRecord])
     
-    func removeExerciseRecordByItem(targetExerciseRecord: ExerciseRecord)
-    
     func removeExerciseRecordById(id: String)
     
     func getExerciseRecords() -> [ExerciseRecord]

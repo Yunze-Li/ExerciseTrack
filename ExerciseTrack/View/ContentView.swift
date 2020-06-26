@@ -29,8 +29,7 @@ struct ContentView: View {
     }
     
     func deleteRecord(at offsets: IndexSet) {
-        container.records.remove(atOffsets: offsets)
-        // TODO: pass index here to delete from realm
+        container.removeRecord(offsets: offsets)
     }
 }
 

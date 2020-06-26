@@ -29,18 +29,8 @@ class RealmManager: ExerciseDataRepository {
         }
     }
     
-    func removeExerciseRecordByItem(targetExerciseRecord: ExerciseRecord) {
-        let model = mapper.mapExerciseRecordToModel(targetExerciseRecord)
-        removeExerciseModel(model)
-    }
-    
     func removeExerciseRecordById(id: String) {
-        let results = realm.objects(ExerciseModel.self).filter("id == \(id)").first
-        if results != nil {
-            removeExerciseModel(results!)
-        } else {
-            NSLog("id: \(id) is not found, remove failed!")
-        }
+        removeExerciseModelById(id: id)
     }
     
     func getExerciseRecords() -> [ExerciseRecord] {
@@ -53,16 +43,16 @@ class RealmManager: ExerciseDataRepository {
     }
     
     private func addExerciseModelToRealm(_ model: ExerciseModel) {
-        NSLog("exercise model id: \(model.id), name: \(model.exerciseName) is trying to add to realm DB")
         try! realm.write {
             realm.add(model)
         }
+        NSLog("exercise model type: \(model.exerciseType), name: \(model.exerciseName) is added to realm DB")
     }
     
-    private func removeExerciseModel(_ model: ExerciseModel) {
-        NSLog("exercise model id: \(model.id), name: \(model.exerciseName) is trying to remove from realm DB")
+    private func removeExerciseModelById(id: String) {
         try! realm.write {
-            realm.delete(model)
+            realm.delete(realm.objects(ExerciseModel.self).filter("id == %@", id))
+            NSLog("exercise id: \(id) is removed from realm DB")
         }
     }
     
