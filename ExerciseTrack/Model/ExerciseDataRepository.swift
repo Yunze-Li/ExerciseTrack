@@ -9,12 +9,12 @@
 import Foundation
 
 protocol ExerciseDataRepository {
-    
+
     func addExerciseRecord(newExerciseRecord: ExerciseRecord)
-    
+
     func addAllExerciseRecord(newExerciseRecordList: [ExerciseRecord])
-    
+
     func removeExerciseRecordById(id: String)
-    
+
     func getExerciseRecords() -> [ExerciseRecord]
 }

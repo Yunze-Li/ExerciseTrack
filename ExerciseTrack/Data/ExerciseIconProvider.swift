@@ -9,7 +9,7 @@
 import Foundation
 
 class ExerciseIconProvider {
-    
+
     static func provideAvailableExerciseEmojiIcon() -> [String] {
         return ["🏃‍♂️", "⛹", "🧘‍♂️", "🏋️", "🚴‍♀️", "🏊‍♀️", "🏌", "⛷", "🚣‍♀️", "🧗‍♂️", "🏇"]
     }

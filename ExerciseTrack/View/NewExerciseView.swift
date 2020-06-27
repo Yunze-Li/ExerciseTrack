@@ -10,18 +10,18 @@ import SwiftUI
 
 // TODO: merge this with Exercise Detail view
 struct NewExerciseView: View {
-    
+
     @Environment(\.presentationMode) var presentation
-    
+
     @ObservedObject var container: ExerciseRecordContainer
-    
-    @State internal var newExerciseRecordIcon : String = ""
-    @State internal var newExerciseRecordType : String = ""
-    @State internal var newExerciseRecordName : String = ""
-    @State internal var newExerciseRecordTodayWeight : String = ""
-    
+
+    @State internal var newExerciseRecordIcon: String = ""
+    @State internal var newExerciseRecordType: String = ""
+    @State internal var newExerciseRecordName: String = ""
+    @State internal var newExerciseRecordTodayWeight: String = ""
+
     let exerciseEmojiIcons: [String] = ExerciseIconProvider.provideAvailableExerciseEmojiIcon()
-    
+
     var body: some View {
         Form {
             Section(header: Text("Create New Exercise").font(.subheadline)) {
@@ -45,15 +45,15 @@ struct NewExerciseView: View {
                         .lineLimit(1).multilineTextAlignment(.trailing)
                 }
             }
-            
-            Section(header: Text("Today's Weight").font(.subheadline))  {
+
+            Section(header: Text("Today's Weight").font(.subheadline)) {
                 HStack {
                     TextField("enter your weight", text: $newExerciseRecordTodayWeight)
                         .lineLimit(1).multilineTextAlignment(.trailing)
                         .keyboardType(.decimalPad)
                 }
             }
-            
+
             Section {
                 Button("Save") {
                     self.addNewExercise()
@@ -62,7 +62,7 @@ struct NewExerciseView: View {
             }
         }.navigationBarTitle(Text("Exercise Detail"), displayMode: .inline)
     }
-    
+
     func addNewExercise() {
         print("add new exercise record! icon: \(newExerciseRecordIcon), type: \(newExerciseRecordType), name: \(newExerciseRecordName), wight: \(newExerciseRecordTodayWeight)")
         self.container.addNewRecord(exerciseRecord: ExerciseRecord(
@@ -81,10 +81,10 @@ struct NewExerciseView_Previews: PreviewProvider {
     static var previews: some View {
         PreviewWrapper()
     }
-    
+
     struct PreviewWrapper: View {
         @ObservedObject var previewContainer = ExerciseRecordContainer(exerciseDateRepository: PreviewExerciseDataRepository())
-        
+
         var body: some View {
             NavigationView {
                 NewExerciseView(container: previewContainer)

@@ -9,15 +9,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+
     @ObservedObject var container: ExerciseRecordContainer
-    
+
     var body: some View {
         NavigationView {
             List {
                 ForEach(container.records.indexed(), id: \.1.id) { index, record in
                     NavigationLink(destination: ExerciseDetail(record: self.$container.records[index])) {
-                        ExerciseCell(exerciseRecord:record)
+                        ExerciseCell(exerciseRecord: record)
                     }
                 }.onDelete(perform: deleteRecord(at:))
             }.navigationBarItems(
@@ -27,7 +27,7 @@ struct ContentView: View {
             ).navigationBarTitle("Exercise Tracker")
         }
     }
-    
+
     func deleteRecord(at offsets: IndexSet) {
         container.removeRecord(offsets: offsets)
     }

@@ -10,17 +10,17 @@ import Foundation
 import RealmSwift
 
 // Realm data model
-class ExerciseModel : Object {
-    
+class ExerciseModel: Object {
+
     @objc dynamic var id = ""
-    
+
     @objc dynamic var date = Date()
-    
+
     @objc dynamic var exerciseEmojiIcon = ""
-    
+
     @objc dynamic var exerciseType = ""
-    
+
     @objc dynamic var exerciseName = ""
-    
+
     @objc dynamic var todayWeight = ""
 }

@@ -9,11 +9,11 @@
 import Foundation
 
 class PreviewUtil {
-    
+
     func getPreviewExerciseRecord() -> ExerciseRecord {
-        return ExerciseRecord(id: UUID().uuidString, date: .init(), exerciseEmojiIcon:"🏃‍♂️", exerciseType:"Insanity", exerciseName:"06 - Cardio Abs", todayWeight: "83.5")
+        return ExerciseRecord(id: UUID().uuidString, date: .init(), exerciseEmojiIcon: "🏃‍♂️", exerciseType: "Insanity", exerciseName: "06 - Cardio Abs", todayWeight: "83.5")
     }
-    
+
     func getPreviewExerciseRecords() -> [ExerciseRecord] {
         return [
             .init(id: UUID().uuidString, date: .init(), exerciseEmojiIcon:"🏃‍♂️", exerciseType:"Insanity", exerciseName:"05 - Pure Cardio", todayWeight: "83.5"),

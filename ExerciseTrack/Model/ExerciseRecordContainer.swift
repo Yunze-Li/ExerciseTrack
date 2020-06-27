@@ -11,18 +11,18 @@ import Foundation
 // This is a container using byu SwiftUI to observe data change between views, it holds
 // an implementation of ExerciseDataRepository and update at same time
 final class ExerciseRecordContainer: ObservableObject {
-    
+
     /*
      * Initialize with records data and exerciseDateRepository
      */
     private var exerciseDateRepository: ExerciseDataRepository
-    @Published internal var records : [ExerciseRecord] = []
-    
+    @Published internal var records: [ExerciseRecord] = []
+
     init(exerciseDateRepository: ExerciseDataRepository) {
         self.exerciseDateRepository = exerciseDateRepository
         self.records = self.exerciseDateRepository.getExerciseRecords()
     }
-    
+
     /*
      * Add new record to container
      */
@@ -30,7 +30,7 @@ final class ExerciseRecordContainer: ObservableObject {
         records.append(exerciseRecord)
         exerciseDateRepository.addExerciseRecord(newExerciseRecord: exerciseRecord)
     }
-    
+
     /*
      * Add all records to container
      */
@@ -38,7 +38,7 @@ final class ExerciseRecordContainer: ObservableObject {
         records.append(contentsOf: exerciseRecordList)
         exerciseDateRepository.addAllExerciseRecord(newExerciseRecordList: exerciseRecordList)
     }
-    
+
     /*
      * Remove record in container by indexSet
      */
@@ -48,7 +48,7 @@ final class ExerciseRecordContainer: ObservableObject {
         }
         records.remove(atOffsets: offsets)
     }
-    
+
     /*
      * Remove record in container by index
      */
@@ -56,7 +56,7 @@ final class ExerciseRecordContainer: ObservableObject {
         records.remove(at: index)
         exerciseDateRepository.removeExerciseRecordById(id: records[index].id)
     }
-    
+
     /*
      * Remove record in container by id
      */

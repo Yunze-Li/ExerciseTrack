@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ExerciseCell: View {
-    var exerciseRecord :ExerciseRecord
+    var exerciseRecord: ExerciseRecord
     var body: some View {
         HStack {
             Text(TimeUtil.convertTimestampToString(date: exerciseRecord.date, format: "MMM dd"))
@@ -29,6 +29,6 @@ struct ExerciseCell: View {
 
 struct ExerciseCell_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseCell(exerciseRecord:PreviewUtil().getPreviewExerciseRecord())
+        ExerciseCell(exerciseRecord: PreviewUtil().getPreviewExerciseRecord())
     }
 }
