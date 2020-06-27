@@ -11,7 +11,7 @@ import Foundation
 // Value of binding must be value type, which is enum or struct
 struct ExerciseRecord: Identifiable {
     let id: String
-    let date: Date
+    var date: Date
     var exerciseEmojiIcon: String
     var exerciseType: String
     var exerciseName: String

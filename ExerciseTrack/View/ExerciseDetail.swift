@@ -18,6 +18,10 @@ struct ExerciseDetail: View {
 
     var body: some View {
         Form {
+            Section(header: Text("Exercise Date").font(.subheadline)) {
+                DatePicker("Date", selection: $record.date, displayedComponents: .date)
+            }
+            
             Section(header: Text("Exercise Detail").font(.subheadline)) {
                 HStack {
                     Picker("Icon", selection: $record.exerciseEmojiIcon) {

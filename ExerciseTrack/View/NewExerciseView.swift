@@ -15,6 +15,7 @@ struct NewExerciseView: View {
 
     @ObservedObject var container: ExerciseRecordContainer
 
+    @State internal var newExerciseRecordDate: Date = Date()
     @State internal var newExerciseRecordIcon: String = ""
     @State internal var newExerciseRecordType: String = ""
     @State internal var newExerciseRecordName: String = ""
@@ -24,6 +25,10 @@ struct NewExerciseView: View {
 
     var body: some View {
         Form {
+            Section(header: Text("Exercise Date").font(.subheadline)) {
+                DatePicker("Date", selection: $newExerciseRecordDate, displayedComponents: .date)
+            }
+            
             Section(header: Text("Create New Exercise").font(.subheadline)) {
                 HStack {
                     Picker("Icon", selection: $newExerciseRecordIcon) {
@@ -67,7 +72,7 @@ struct NewExerciseView: View {
         print("add new exercise record! icon: \(newExerciseRecordIcon), type: \(newExerciseRecordType), name: \(newExerciseRecordName), wight: \(newExerciseRecordTodayWeight)")
         self.container.addNewRecord(exerciseRecord: ExerciseRecord(
             id: UUID().uuidString,
-            date: .init(),
+            date: newExerciseRecordDate,
             exerciseEmojiIcon: newExerciseRecordIcon,
             exerciseType: newExerciseRecordType,
             exerciseName: newExerciseRecordName,
