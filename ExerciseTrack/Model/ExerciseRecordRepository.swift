@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol ExerciseDataRepository {
+protocol ExerciseRecordRepository {
 
     func addExerciseRecord(newExerciseRecord: ExerciseRecord)
 
     func addAllExerciseRecord(newExerciseRecordList: [ExerciseRecord])
 
-    func removeExerciseRecordById(id: String)
+    func removeExerciseRecordById(recordId: String)
 
     func getExerciseRecords() -> [ExerciseRecord]
 }

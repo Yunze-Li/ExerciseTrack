@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class RealmManager: ExerciseDataRepository {
+class RealmManager: ExerciseRecordRepository {
     
     lazy var realm = { try! Realm() }()
     lazy var mapper: ExerciseMapper = { ExerciseMapper() }()
@@ -29,8 +29,8 @@ class RealmManager: ExerciseDataRepository {
         }
     }
     
-    func removeExerciseRecordById(id: String) {
-        removeExerciseModelById(id: id)
+    func removeExerciseRecordById(recordId: String) {
+        removeExerciseModelById(recordId: recordId)
     }
     
     func getExerciseRecords() -> [ExerciseRecord] {
@@ -49,16 +49,16 @@ class RealmManager: ExerciseDataRepository {
         NSLog("exercise model type: \(model.exerciseType), name: \(model.exerciseName) is added to realm DB")
     }
     
-    private func removeExerciseModelById(id: String) {
+    private func removeExerciseModelById(recordId: String) {
         try! realm.write {
-            realm.delete(realm.objects(ExerciseModel.self).filter("id == %@", id))
-            NSLog("exercise id: \(id) is removed from realm DB")
+            realm.delete(realm.objects(ExerciseModel.self).filter("id == %@", recordId))
+            NSLog("exercise id: \(recordId) is removed from realm DB")
         }
     }
     
     private func getExerciseModelsFromRealm() -> [ExerciseModel] {
         var exerciseModels: [ExerciseModel] = []
-        let realmResults = realm.objects(ExerciseModel.self)
+        let realmResults = realm.objects(ExerciseModel.self).sorted(byKeyPath: "date", ascending: false)
         NSLog("fetch \(realmResults.count) exercise models from realm DB")
         for exerciseModel in realmResults {
             exerciseModels.append(exerciseModel)

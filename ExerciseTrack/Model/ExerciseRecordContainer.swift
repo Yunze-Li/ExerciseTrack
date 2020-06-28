@@ -15,12 +15,13 @@ final class ExerciseRecordContainer: ObservableObject {
     /*
      * Initialize with records data and exerciseDateRepository
      */
-    private var exerciseDateRepository: ExerciseDataRepository
+    private var exerciseDateRepository: ExerciseRecordRepository
     @Published internal var records: [ExerciseRecord] = []
 
-    init(exerciseDateRepository: ExerciseDataRepository) {
+    init(exerciseDateRepository: ExerciseRecordRepository) {
         self.exerciseDateRepository = exerciseDateRepository
         self.records = self.exerciseDateRepository.getExerciseRecords()
+        sortRecordsByDateDescending()
     }
 
     /*
@@ -28,6 +29,7 @@ final class ExerciseRecordContainer: ObservableObject {
      */
     func addNewRecord(exerciseRecord: ExerciseRecord) {
         records.append(exerciseRecord)
+        sortRecordsByDateDescending()
         exerciseDateRepository.addExerciseRecord(newExerciseRecord: exerciseRecord)
     }
 
@@ -36,6 +38,7 @@ final class ExerciseRecordContainer: ObservableObject {
      */
     func addAllRecords(exerciseRecordList: [ExerciseRecord]) {
         records.append(contentsOf: exerciseRecordList)
+        sortRecordsByDateDescending()
         exerciseDateRepository.addAllExerciseRecord(newExerciseRecordList: exerciseRecordList)
     }
 
@@ -44,7 +47,7 @@ final class ExerciseRecordContainer: ObservableObject {
      */
     func removeRecord(offsets: IndexSet) {
         for index in offsets {
-            exerciseDateRepository.removeExerciseRecordById(id: records[index].id)
+            exerciseDateRepository.removeExerciseRecordById(recordId: records[index].id)
         }
         records.remove(atOffsets: offsets)
     }
@@ -54,7 +57,7 @@ final class ExerciseRecordContainer: ObservableObject {
      */
     func removeRecord(index: Int) {
         records.remove(at: index)
-        exerciseDateRepository.removeExerciseRecordById(id: records[index].id)
+        exerciseDateRepository.removeExerciseRecordById(recordId: records[index].id)
     }
 
     /*
@@ -71,6 +74,12 @@ final class ExerciseRecordContainer: ObservableObject {
             removeRecord(index: targetIndex)
         } else {
             NSLog("record id \(id) is not found!")
+        }
+    }
+    
+    private func sortRecordsByDateDescending() {
+        records.sort {
+            $0.date > $1.date
         }
     }
 }

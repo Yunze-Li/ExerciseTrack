@@ -11,9 +11,9 @@
 		763306DA24A31C92003E5818 /* TimeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763306D924A31C92003E5818 /* TimeUtil.swift */; };
 		763306DC24A35772003E5818 /* ExerciseIconProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763306DB24A35772003E5818 /* ExerciseIconProvider.swift */; };
 		763306DE24A35AD1003E5818 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763306DD24A35AD1003E5818 /* Extension.swift */; };
-		7688947824A4B8100019E2E0 /* ExerciseDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688947724A4B8100019E2E0 /* ExerciseDataRepository.swift */; };
+		7688947824A4B8100019E2E0 /* ExerciseRecordRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688947724A4B8100019E2E0 /* ExerciseRecordRepository.swift */; };
 		7688947B24A4CF880019E2E0 /* ExerciseRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688947A24A4CF880019E2E0 /* ExerciseRecord.swift */; };
-		7688947D24A4D7EE0019E2E0 /* PreviewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2B49124A074CC009F412D /* PreviewUtil.swift */; };
+		7688947D24A4D7EE0019E2E0 /* TestDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2B49124A074CC009F412D /* TestDataUtil.swift */; };
 		76CF1CFD24A46B1C002A632D /* ExerciseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CF1CFC24A46B1C002A632D /* ExerciseMapper.swift */; };
 		76CF1D0024A46B70002A632D /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CF1CFF24A46B70002A632D /* RealmManager.swift */; };
 		76E2B45B24A06F20009F412D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2B45A24A06F20009F412D /* AppDelegate.swift */; };
@@ -56,7 +56,7 @@
 		763306D924A31C92003E5818 /* TimeUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUtil.swift; sourceTree = "<group>"; };
 		763306DB24A35772003E5818 /* ExerciseIconProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseIconProvider.swift; sourceTree = "<group>"; };
 		763306DD24A35AD1003E5818 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		7688947724A4B8100019E2E0 /* ExerciseDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDataRepository.swift; sourceTree = "<group>"; };
+		7688947724A4B8100019E2E0 /* ExerciseRecordRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRecordRepository.swift; sourceTree = "<group>"; };
 		7688947A24A4CF880019E2E0 /* ExerciseRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRecord.swift; sourceTree = "<group>"; };
 		76CF1CFC24A46B1C002A632D /* ExerciseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseMapper.swift; sourceTree = "<group>"; };
 		76CF1CFF24A46B70002A632D /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 		76E2B47C24A06F21009F412D /* ExerciseTrackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTrackUITests.swift; sourceTree = "<group>"; };
 		76E2B47E24A06F21009F412D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76E2B48D24A0713A009F412D /* ExerciseRecordContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRecordContainer.swift; sourceTree = "<group>"; };
-		76E2B49124A074CC009F412D /* PreviewUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewUtil.swift; sourceTree = "<group>"; };
+		76E2B49124A074CC009F412D /* TestDataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataUtil.swift; sourceTree = "<group>"; };
 		76E8129924A0B95000E7F044 /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		76E8129B24A0C32700E7F044 /* ExerciseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetail.swift; sourceTree = "<group>"; };
 		76E8129D24A0CC1500E7F044 /* NewExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExerciseView.swift; sourceTree = "<group>"; };
@@ -224,7 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				76E2B48D24A0713A009F412D /* ExerciseRecordContainer.swift */,
-				7688947724A4B8100019E2E0 /* ExerciseDataRepository.swift */,
+				7688947724A4B8100019E2E0 /* ExerciseRecordRepository.swift */,
 				7688947A24A4CF880019E2E0 /* ExerciseRecord.swift */,
 			);
 			path = Model;
@@ -245,7 +245,7 @@
 		76E2B49024A074B2009F412D /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				76E2B49124A074CC009F412D /* PreviewUtil.swift */,
+				76E2B49124A074CC009F412D /* TestDataUtil.swift */,
 				76CF1CFC24A46B1C002A632D /* ExerciseMapper.swift */,
 				763306D924A31C92003E5818 /* TimeUtil.swift */,
 				763306DD24A35AD1003E5818 /* Extension.swift */,
@@ -460,7 +460,7 @@
 		};
 		760C150024A721E700A65BBE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
@@ -471,9 +471,9 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# \"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		7A1386727F2B45918A6CA204 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -545,14 +545,14 @@
 				763306DE24A35AD1003E5818 /* Extension.swift in Sources */,
 				76E2B45D24A06F20009F412D /* SceneDelegate.swift in Sources */,
 				7688947B24A4CF880019E2E0 /* ExerciseRecord.swift in Sources */,
-				7688947D24A4D7EE0019E2E0 /* PreviewUtil.swift in Sources */,
+				7688947D24A4D7EE0019E2E0 /* TestDataUtil.swift in Sources */,
 				76FB7A1924A3B2F600474085 /* ExerciseModel.swift in Sources */,
 				763306DC24A35772003E5818 /* ExerciseIconProvider.swift in Sources */,
 				76E2B45F24A06F20009F412D /* ContentView.swift in Sources */,
 				76E8129A24A0B95000E7F044 /* ExerciseCell.swift in Sources */,
 				76CF1CFD24A46B1C002A632D /* ExerciseMapper.swift in Sources */,
 				763306DA24A31C92003E5818 /* TimeUtil.swift in Sources */,
-				7688947824A4B8100019E2E0 /* ExerciseDataRepository.swift in Sources */,
+				7688947824A4B8100019E2E0 /* ExerciseRecordRepository.swift in Sources */,
 				76E8129E24A0CC1500E7F044 /* NewExerciseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

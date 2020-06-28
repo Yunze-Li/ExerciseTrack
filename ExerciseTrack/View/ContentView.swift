@@ -34,12 +34,12 @@ struct ContentView: View {
 }
 
 // Preview
-class PreviewExerciseDataRepository: ExerciseDataRepository {
+class PreviewExerciseDataRepository: ExerciseRecordRepository {
     func addExerciseRecord(newExerciseRecord: ExerciseRecord) {}
     func addAllExerciseRecord(newExerciseRecordList: [ExerciseRecord]) {}
     func removeExerciseRecordByItem(targetExerciseRecord: ExerciseRecord) {}
-    func removeExerciseRecordById(id: String) {}
-    func getExerciseRecords() -> [ExerciseRecord] { return PreviewUtil().getPreviewExerciseRecords() }
+    func removeExerciseRecordById(recordId: String) {}
+    func getExerciseRecords() -> [ExerciseRecord] { return TestDataUtil().getPreviewExerciseRecords() }
 }
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
