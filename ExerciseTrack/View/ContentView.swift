@@ -7,29 +7,46 @@
 //
 
 import SwiftUI
+import SwiftUICharts
 
 struct ContentView: View {
-
+    
     @ObservedObject var container: ExerciseRecordContainer
-
+    
     var body: some View {
         NavigationView {
-            List {
-                ForEach(container.records.indexed(), id: \.1.id) { index, record in
-                    NavigationLink(destination: ExerciseDetail(record: self.$container.records[index])) {
-                        ExerciseCell(exerciseRecord: record)
+            VStack(){
+                Spacer()
+                BarChartView(data: ChartData(points: getLastWeekWeights()), title: "Weekly Weight", form: ChartForm.large)
+                Spacer(minLength: 20)
+                List {
+                    ForEach(container.records.indexed(), id: \.1.id) { index, record in
+                        NavigationLink(destination: ExerciseDetail(record: self.$container.records[index])) {
+                            ExerciseCell(exerciseRecord: record)
+                        }
+                    }.onDelete(perform: deleteRecord(at:))
+                }.navigationBarItems(
+                    trailing: NavigationLink(destination: NewExerciseView(container: container)) {
+                        Text("Add")
                     }
-                }.onDelete(perform: deleteRecord(at:))
-            }.navigationBarItems(
-                trailing: NavigationLink(destination: NewExerciseView(container: container)) {
-                    Text("Add")
-                }
-            ).navigationBarTitle("Exercise Tracker")
+                ).navigationBarTitle(Text("Exercise Tracker"))
+            }
         }
     }
-
+    
     func deleteRecord(at offsets: IndexSet) {
         container.removeRecord(offsets: offsets)
+    }
+    
+    func getLastWeekWeights() -> [Double] {
+        let fromDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
+        var result: [Double] = []
+        for record in container.records {
+            if (record.date >= fromDate) {
+                result.append(Double(record.todayWeight)!)
+            }
+        }
+        return result
     }
 }
 
