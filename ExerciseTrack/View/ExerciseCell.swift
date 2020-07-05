@@ -13,8 +13,7 @@ struct ExerciseCell: View {
     var body: some View {
         HStack {
             Text(TimeUtil.convertTimestampToString(date: exerciseRecord.date, format: "MMM dd"))
-                .font(.headline)
-            Spacer().frame(width: 15)
+                .font(.headline).frame(minWidth: 60, idealWidth: 60, maxWidth: 60)
             Text(exerciseRecord.exerciseEmojiIcon)
                 .font(.title)
             VStack(alignment: .leading) {

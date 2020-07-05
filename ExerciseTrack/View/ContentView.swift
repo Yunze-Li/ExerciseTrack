@@ -17,7 +17,6 @@ struct ContentView: View {
         NavigationView {
             VStack(){
                 Spacer()
-//                BarChartView(data: ChartData([83.8, 84.0, 81.9]), title: "Weekly Weight")
                 Spacer(minLength: 20)
                 List {
                     ForEach(container.records.indexed(), id: \.1.id) { index, record in
@@ -37,17 +36,6 @@ struct ContentView: View {
     func deleteRecord(at offsets: IndexSet) {
         container.removeRecord(offsets: offsets)
     }
-    
-//    func getLastWeekWeights() -> [Double] {
-//        let fromDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
-//        var result: [Double] = []
-//        for record in container.records {
-//            if (record.date >= fromDate) {
-//                result.append(Double(record.todayWeight)!)
-//            }
-//        }
-//        return result
-//    }
 }
 
 // Preview

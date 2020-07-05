@@ -11,7 +11,7 @@ import SwiftUICharts
 
 struct Line: View {
     @State var tabIndex:Int = 0
-    let charData = ChartData(points: [8,23,54,32,12,37,7,23,43])
+    let charData = ChartData(points: [54.0,53.8,53.6,54.0,53.8,53.6])
     var body: some View {
         TabView(selection: $tabIndex) {
             BarCharts().tabItem { Group{
@@ -62,7 +62,7 @@ struct PieCharts:View {
 struct LineChartsFull: View {
     var body: some View {
         VStack{
-            LineView(data: [8,23,54,32,12,37,7,23,43], title: "Line chart", legend: "Full screen").padding()
+            LineView(data: [540,538,536,540,538,536], title: "Line chart", legend: "Full screen").padding()
             // legend is optional, use optional .padding()
         }
     }
