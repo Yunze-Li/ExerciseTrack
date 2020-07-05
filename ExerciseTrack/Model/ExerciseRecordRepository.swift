@@ -13,6 +13,8 @@ protocol ExerciseRecordRepository {
     func addExerciseRecord(newExerciseRecord: ExerciseRecord)
 
     func addAllExerciseRecord(newExerciseRecordList: [ExerciseRecord])
+    
+    func updateExerciseRecord(exerciseRecord: ExerciseRecord)
 
     func removeExerciseRecordById(recordId: String)
 

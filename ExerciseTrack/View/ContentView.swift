@@ -17,11 +17,11 @@ struct ContentView: View {
         NavigationView {
             VStack(){
                 Spacer()
-                BarChartView(data: ChartData(points: getLastWeekWeights()), title: "Weekly Weight", form: ChartForm.large)
+//                BarChartView(data: ChartData([83.8, 84.0, 81.9]), title: "Weekly Weight")
                 Spacer(minLength: 20)
                 List {
                     ForEach(container.records.indexed(), id: \.1.id) { index, record in
-                        NavigationLink(destination: ExerciseDetail(record: self.$container.records[index])) {
+                        NavigationLink(destination: ExerciseDetail(record: self.$container.records[index], container: self.container)) {
                             ExerciseCell(exerciseRecord: record)
                         }
                     }.onDelete(perform: deleteRecord(at:))
@@ -38,26 +38,28 @@ struct ContentView: View {
         container.removeRecord(offsets: offsets)
     }
     
-    func getLastWeekWeights() -> [Double] {
-        let fromDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
-        var result: [Double] = []
-        for record in container.records {
-            if (record.date >= fromDate) {
-                result.append(Double(record.todayWeight)!)
-            }
-        }
-        return result
-    }
+//    func getLastWeekWeights() -> [Double] {
+//        let fromDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
+//        var result: [Double] = []
+//        for record in container.records {
+//            if (record.date >= fromDate) {
+//                result.append(Double(record.todayWeight)!)
+//            }
+//        }
+//        return result
+//    }
 }
 
 // Preview
 class PreviewExerciseDataRepository: ExerciseRecordRepository {
     func addExerciseRecord(newExerciseRecord: ExerciseRecord) {}
     func addAllExerciseRecord(newExerciseRecordList: [ExerciseRecord]) {}
+    func updateExerciseRecord(exerciseRecord: ExerciseRecord) {}
     func removeExerciseRecordByItem(targetExerciseRecord: ExerciseRecord) {}
     func removeExerciseRecordById(recordId: String) {}
     func getExerciseRecords() -> [ExerciseRecord] { return TestDataUtil().getPreviewExerciseRecords() }
 }
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let testContainer = ExerciseRecordContainer(exerciseDateRepository: PreviewExerciseDataRepository())

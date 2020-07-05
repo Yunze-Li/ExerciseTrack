@@ -29,6 +29,11 @@ class RealmManager: ExerciseRecordRepository {
         }
     }
     
+    func updateExerciseRecord(exerciseRecord: ExerciseRecord) {
+        let model = mapper.mapExerciseRecordToModel(exerciseRecord)
+        updateExerciseModelToRealm(model)
+    }
+    
     func removeExerciseRecordById(recordId: String) {
         removeExerciseModelById(recordId: recordId)
     }
@@ -47,6 +52,18 @@ class RealmManager: ExerciseRecordRepository {
             realm.add(model)
         }
         NSLog("exercise model type: \(model.exerciseType), name: \(model.exerciseName) is added to realm DB")
+    }
+    
+    private func updateExerciseModelToRealm(_ model: ExerciseModel) {
+        let exerciseModel = realm.objects(ExerciseModel.self).filter("id == %@", model.id).first
+        try! realm.write {
+            exerciseModel!.date = model.date
+            exerciseModel!.exerciseEmojiIcon = model.exerciseEmojiIcon
+            exerciseModel!.exerciseType = model.exerciseType
+            exerciseModel!.exerciseName = model.exerciseName
+            exerciseModel!.todayWeight = model.todayWeight
+        }
+        NSLog("exercise model id: \(model.id) is updated to realm DB")
     }
     
     private func removeExerciseModelById(recordId: String) {

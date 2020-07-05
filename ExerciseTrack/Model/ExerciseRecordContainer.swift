@@ -41,6 +41,13 @@ final class ExerciseRecordContainer: ObservableObject {
         sortRecordsByDateDescending()
         exerciseDateRepository.addAllExerciseRecord(newExerciseRecordList: exerciseRecordList)
     }
+    
+    /*
+     * Update existing record in repository
+     */
+    func updateRecord(exerciseRecord: ExerciseRecord) {
+        exerciseDateRepository.updateExerciseRecord(exerciseRecord: exerciseRecord)
+    }
 
     /*
      * Remove record in container by indexSet

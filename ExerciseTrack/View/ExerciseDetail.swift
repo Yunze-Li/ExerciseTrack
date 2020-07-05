@@ -13,6 +13,7 @@ struct ExerciseDetail: View {
     @Environment(\.presentationMode) var presentation
 
     @Binding var record: ExerciseRecord
+    var container: ExerciseRecordContainer
 
     let exerciseEmojiIcons: [String] = ExerciseIconProvider.provideAvailableExerciseEmojiIcon()
 
@@ -56,10 +57,16 @@ struct ExerciseDetail: View {
 
             Section {
                 Button("Save") {
+                    self.UpdateExistedExercise()
                     self.presentation.wrappedValue.dismiss()
                 }
             }
         }.navigationBarTitle(Text("Exercise Detail"), displayMode: .inline)
+    }
+    
+    func UpdateExistedExercise() {
+        print("update exercise record! icon: \(record.exerciseEmojiIcon), type: \(record.exerciseType), name: \(record.exerciseName), wight: \(record.todayWeight)")
+        self.container.updateRecord(exerciseRecord: record)
     }
 }
 
@@ -70,10 +77,11 @@ struct ExerciseDetail_Previews: PreviewProvider {
 
     struct PreviewWrapper: View {
         @State var previewRecord = TestDataUtil().getPreviewExerciseRecord()
+        let testContainer = ExerciseRecordContainer(exerciseDateRepository: PreviewExerciseDataRepository())
 
         var body: some View {
             NavigationView {
-                ExerciseDetail(record: $previewRecord)
+                ExerciseDetail(record: $previewRecord, container: testContainer)
             }
         }
     }
