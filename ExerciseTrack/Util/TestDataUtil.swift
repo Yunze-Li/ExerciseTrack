@@ -16,17 +16,40 @@ class TestDataUtil {
     }
     
     func getPreviewExerciseRecord() -> ExerciseRecord {
-        return ExerciseRecord(id: UUID().uuidString, date: .init(), exerciseEmojiIcon: "🏃‍♂️", exerciseType: "Insanity", exerciseName: "06 - Cardio Abs", todayWeight: "83.5")
+        return ExerciseRecord(id: UUID().uuidString, date: getRandomDate(), exerciseEmojiIcon: getRandomEmojiIcon(), exerciseType: getRandomExerciseType(), exerciseName: getRandomExerciseName(), todayWeight: getRandomWeight())
     }
     
-    func getPreviewExerciseRecords() -> [ExerciseRecord] {
-        return [
-            .init(id: UUID().uuidString, date: dateFormatter.date(from: "2020-06-23")!, exerciseEmojiIcon:"🏃‍♂️", exerciseType:"Insanity", exerciseName:"05 - Pure Cardio", todayWeight: "83.5"),
-            .init(id: UUID().uuidString, date: dateFormatter.date(from: "2020-06-24")!, exerciseEmojiIcon:"🏊‍♀️", exerciseType:"Swim", exerciseName:"swimming 3 km", todayWeight: "83.4"),
-            .init(id: UUID().uuidString, date: dateFormatter.date(from: "2020-06-25")!, exerciseEmojiIcon:"⛹", exerciseType:"Basketball", exerciseName:"2 hour basketball", todayWeight: "83.6"),
-            .init(id: UUID().uuidString, date: dateFormatter.date(from: "2020-06-26")!, exerciseEmojiIcon:"🧘‍♂️", exerciseType:"Relax", exerciseName:"relax", todayWeight: "83.2"),
-            .init(id: UUID().uuidString, date: dateFormatter.date(from: "2020-07-01")!, exerciseEmojiIcon:"🏋️", exerciseType:"Gym", exerciseName:"strength training 1 hour", todayWeight: "83.3"),
-            .init(id: UUID().uuidString, date: dateFormatter.date(from: "2020-07-03")!, exerciseEmojiIcon:"🚴‍♀️", exerciseType:"Bicycle", exerciseName:"30min biking", todayWeight: "83.1")
-        ]
+    func getPreviewExerciseRecords(count: Int) -> [ExerciseRecord] {
+        var testRecords: [ExerciseRecord] = []
+        for _ in 0...count {
+            testRecords.append(.init(id: UUID().uuidString, date: getRandomDate(), exerciseEmojiIcon: getRandomEmojiIcon(), exerciseType: getRandomExerciseType(), exerciseName: getRandomExerciseName(), todayWeight: getRandomWeight()))
+        }
+        return testRecords
+    }
+    
+    private func getRandomDate() -> Date {
+        let startDate = dateFormatter.date(from: "2020-06-23")!
+        let randomDate = Calendar.current.date(byAdding: .day, value: Int.random(in: 0 ..< 15), to: startDate)!
+        return randomDate
+    }
+    
+    private func getRandomEmojiIcon() -> String {
+        let icons = ExerciseIconProvider.provideAvailableExerciseEmojiIcon()
+        return icons[Int.random(in: 0 ..< icons.count)]
+    }
+    
+    private func getRandomExerciseType() -> String {
+        let testExerciseTypes = ["Insanity", "Swim", "Basketball", "Relax", "Gym", "Bicycle", "Dance", "Bouldering", "Running"]
+        return testExerciseTypes[Int.random(in: 0 ..< testExerciseTypes.count)]
+    }
+    
+    private func getRandomExerciseName() -> String {
+        let testExerciseNames = ["1 hour", "30 min", "2 hours", "haven't count the time", "15min"]
+        return testExerciseNames[Int.random(in: 0 ..< testExerciseNames.count)]
+    }
+    
+    private func getRandomWeight() -> String {
+        let randomWeight = 83 + Float.random(in: 0 ..< 1)
+        return String(format: "%.1f", randomWeight)
     }
 }

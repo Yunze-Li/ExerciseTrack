@@ -45,7 +45,7 @@ class PreviewExerciseDataRepository: ExerciseRecordRepository {
     func updateExerciseRecord(exerciseRecord: ExerciseRecord) {}
     func removeExerciseRecordByItem(targetExerciseRecord: ExerciseRecord) {}
     func removeExerciseRecordById(recordId: String) {}
-    func getExerciseRecords() -> [ExerciseRecord] { return TestDataUtil().getPreviewExerciseRecords() }
+    func getExerciseRecords() -> [ExerciseRecord] { return TestDataUtil().getPreviewExerciseRecords(count: 20) }
 }
 
 struct ContentView_Previews: PreviewProvider {
