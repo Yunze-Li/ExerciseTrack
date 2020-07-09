@@ -33,15 +33,13 @@ struct ExerciseDetail: View {
                 }
                 HStack {
                     Text("Type")
-                    Spacer()
-                    TextField(record.exerciseType, text: $record.exerciseType)
-                        .lineLimit(1).multilineTextAlignment(.trailing)
+                    Spacer(minLength: 100)
+                    ChineseSupportedTextField(record.exerciseType, text: $record.exerciseType)
                 }
                 HStack {
                     Text("Name")
-                    Spacer()
-                    TextField(record.exerciseName, text: $record.exerciseName)
-                        .lineLimit(1).multilineTextAlignment(.trailing)
+                    Spacer(minLength: 100)
+                    ChineseSupportedTextField(record.exerciseName, text: $record.exerciseName)
                 }
             }
 
@@ -50,8 +48,7 @@ struct ExerciseDetail: View {
                     Text("Weight")
                     Spacer()
                     TextField(record.todayWeight, text: $record.todayWeight)
-                        .lineLimit(1).multilineTextAlignment(.trailing)
-                        .keyboardType(.decimalPad)
+                        .multilineTextAlignment(.trailing).keyboardType(.decimalPad)
                 }
             }
 

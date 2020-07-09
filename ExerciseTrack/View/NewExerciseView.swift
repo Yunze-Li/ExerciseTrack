@@ -39,22 +39,20 @@ struct NewExerciseView: View {
                 }
                 HStack {
                     Text("Type")
-                    Spacer()
-                    TextField("enter exercise type", text: $newExerciseRecordType)
-                        .lineLimit(1).multilineTextAlignment(.trailing)
+                    Spacer(minLength: 100)
+                    ChineseSupportedTextField("enter exercise type", text: $newExerciseRecordType)
                 }
                 HStack {
                     Text("Name")
-                    Spacer()
-                    TextField("enter exercise name", text: $newExerciseRecordName)
-                        .lineLimit(1).multilineTextAlignment(.trailing)
+                    Spacer(minLength: 100)
+                    ChineseSupportedTextField("enter exercise name", text: $newExerciseRecordName)
                 }
             }
 
             Section(header: Text("Today's Weight").font(.subheadline)) {
                 HStack {
                     TextField("enter your weight", text: $newExerciseRecordTodayWeight)
-                        .lineLimit(1).multilineTextAlignment(.trailing)
+                        .multilineTextAlignment(.trailing)
                         .keyboardType(.decimalPad)
                 }
             }

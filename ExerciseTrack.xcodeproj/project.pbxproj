@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		13E28D7B56753CD009D2AD8B /* Pods_ExerciseTrackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12F165D9AC1494CE48C62DF3 /* Pods_ExerciseTrackTests.framework */; };
+		7608201524B75649000717D6 /* ChineseSupportedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7608201424B75649000717D6 /* ChineseSupportedTextField.swift */; };
 		763306DA24A31C92003E5818 /* TimeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763306D924A31C92003E5818 /* TimeUtil.swift */; };
 		763306DC24A35772003E5818 /* ExerciseIconProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763306DB24A35772003E5818 /* ExerciseIconProvider.swift */; };
 		763306DE24A35AD1003E5818 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763306DD24A35AD1003E5818 /* Extension.swift */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		12F165D9AC1494CE48C62DF3 /* Pods_ExerciseTrackTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExerciseTrackTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		15469B2FBD40DC41660582E9 /* Pods-ExerciseTrack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExerciseTrack.debug.xcconfig"; path = "Target Support Files/Pods-ExerciseTrack/Pods-ExerciseTrack.debug.xcconfig"; sourceTree = "<group>"; };
+		7608201424B75649000717D6 /* ChineseSupportedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChineseSupportedTextField.swift; sourceTree = "<group>"; };
 		763306D924A31C92003E5818 /* TimeUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUtil.swift; sourceTree = "<group>"; };
 		763306DB24A35772003E5818 /* ExerciseIconProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseIconProvider.swift; sourceTree = "<group>"; };
 		763306DD24A35AD1003E5818 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				76E8129924A0B95000E7F044 /* ExerciseCell.swift */,
 				76E8129B24A0C32700E7F044 /* ExerciseDetail.swift */,
 				76E8129D24A0CC1500E7F044 /* NewExerciseView.swift */,
+				7608201424B75649000717D6 /* ChineseSupportedTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				76E2B48E24A0713A009F412D /* ExerciseRecordContainer.swift in Sources */,
 				768F8A4324A90B040094C002 /* Line.swift in Sources */,
 				76CF1D0024A46B70002A632D /* RealmManager.swift in Sources */,
+				7608201524B75649000717D6 /* ChineseSupportedTextField.swift in Sources */,
 				76E8129C24A0C32700E7F044 /* ExerciseDetail.swift in Sources */,
 				763306DE24A35AD1003E5818 /* Extension.swift in Sources */,
 				76E2B45D24A06F20009F412D /* SceneDelegate.swift in Sources */,
