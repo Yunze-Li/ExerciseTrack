@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import SwiftUICharts
 
 struct ContentView: View {
     
@@ -16,6 +15,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack(){
+                WeightLineChartView()
                 Spacer()
                 Spacer(minLength: 20)
                 List {
