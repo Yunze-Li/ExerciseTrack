@@ -1,8 +1,9 @@
 //
-//  File.swift
+//  Helpers.swift
+//  ExerciseTrack
 //
-//
-//  Created by András Samu on 2019. 07. 19..
+//  Created by Yunze Li on 13/07/2020.
+//  Copyright © 2020 Arctos. All rights reserved.
 //
 
 import Foundation

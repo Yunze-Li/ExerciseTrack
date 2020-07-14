@@ -1,9 +1,9 @@
 //
 //  Legend.swift
-//  LineChart
+//  ExerciseTrack
 //
-//  Created by András Samu on 2019. 09. 02..
-//  Copyright © 2019. András Samu. All rights reserved.
+//  Created by Yunze Li on 13/07/2020.
+//  Copyright © 2020 Arctos. All rights reserved.
 //
 
 import SwiftUI
@@ -42,12 +42,12 @@ struct Legend: View {
         ZStack(alignment: .topLeading){
             ForEach((0...4), id: \.self) { height in
                 HStack(alignment: .center){
-                    Text("\(self.getYLegendSafe(height: height), specifier: "%.2f")").offset(x: 0, y: self.getYposition(height: height) )
-                        .foregroundColor(Colors.LegendText)
-                        .font(.caption)
+//                    Text("\(self.getYLegendSafe(height: height), specifier: "%.2f")").offset(x: 0, y: self.getYposition(height: height) )
+//                        .foregroundColor(Colors.LegendText)
+//                        .font(.caption)
                     self.line(atHeight: self.getYLegendSafe(height: height), width: self.frame.width)
-                        .stroke(self.colorScheme == .dark ? Colors.LegendDarkColor : Colors.LegendColor, style: StrokeStyle(lineWidth: 1.5, lineCap: .round, dash: [5,height == 0 ? 0 : 10]))
-                        .opacity((self.hideHorizontalLines && height != 0) ? 0 : 1)
+                        .stroke(self.colorScheme == .dark ? Colors.LegendDarkColor : Colors.LegendColor, style: StrokeStyle(lineWidth: 1.5, lineCap: .round, dash: [5]))
+                        .opacity((self.hideHorizontalLines) ? 0 : 1)
                         .rotationEffect(.degrees(180), anchor: .center)
                         .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
                         .animation(.easeOut(duration: 0.2))

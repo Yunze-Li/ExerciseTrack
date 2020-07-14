@@ -1,9 +1,9 @@
 //
 //  Line.swift
-//  LineChart
+//  ExerciseTrack
 //
-//  Created by András Samu on 2019. 08. 30..
-//  Copyright © 2019. András Samu. All rights reserved.
+//  Created by Yunze Li on 13/07/2020.
+//  Copyright © 2020 Arctos. All rights reserved.
 //
 
 import SwiftUI
@@ -11,12 +11,10 @@ import SwiftUI
 public struct Line: View {
     @ObservedObject var data: ChartData
     @Binding var frame: CGRect
-    @Binding var touchLocation: CGPoint
-    @Binding var showIndicator: Bool
-    @Binding var minDataValue: Double?
-    @Binding var maxDataValue: Double?
     @State private var showFull: Bool = false
     @State var showBackground: Bool = true
+    var paddingTop:CGFloat = 30
+    var paddingBottom:CGFloat = 30
     var gradient: GradientColor = GradientColor(start: Colors.GradientPurple, end: Colors.GradientNeonBlue)
     var index:Int = 0
     let padding:CGFloat = 30
@@ -31,31 +29,29 @@ public struct Line: View {
         var min: Double?
         var max: Double?
         let points = self.data.onlyPoints()
-        if minDataValue != nil && maxDataValue != nil {
-            min = minDataValue!
-            max = maxDataValue!
-        }else if let minPoint = points.min(), let maxPoint = points.max(), minPoint != maxPoint {
+        if let minPoint = points.min(), let maxPoint = points.max(), minPoint != maxPoint {
             min = minPoint
             max = maxPoint
         }else {
             return 0
         }
         if let min = min, let max = max, min != max {
-            if (min <= 0){
-                return (frame.size.height-padding) / CGFloat(max - min)
-            }else{
-                return (frame.size.height-padding) / CGFloat(max - min)
-            }
+            return (frame.size.height-paddingTop-paddingBottom) / CGFloat(max - min)
         }
         return 0
     }
     var path: Path {
-        let points = self.data.onlyPoints()
-        return curvedLines ? Path.quadCurvedPathWithPoints(points: points, step: CGPoint(x: stepWidth, y: stepHeight), globalOffset: minDataValue) : Path.linePathWithPoints(points: points, step: CGPoint(x: stepWidth, y: stepHeight))
+        let data = self.data.onlyPoints()
+        return Path.linePathWithData(data: data, step: CGPoint(x: stepWidth, y: stepHeight), paddingBottom: paddingBottom)
     }
     var closedPath: Path {
-        let points = self.data.onlyPoints()
-        return curvedLines ? Path.quadClosedCurvedPathWithPoints(points: points, step: CGPoint(x: stepWidth, y: stepHeight), globalOffset: minDataValue) : Path.closedLinePathWithPoints(points: points, step: CGPoint(x: stepWidth, y: stepHeight))
+        let data = self.data.onlyPoints()
+        return Path.closedLinePathWithData(data: data, step: CGPoint(x: stepWidth, y: stepHeight), paddingBottom: paddingBottom)
+    }
+    var indicatorPoints: [IndicatorPoint] {
+        let data = self.data.onlyPoints()
+        let temp = Path.indicatorPointsWithData(data: data, step: CGPoint(x: stepWidth, y: stepHeight), paddingBottom: paddingBottom)
+        return temp
     }
     
     public var body: some View {
@@ -81,26 +77,20 @@ public struct Line: View {
                 self.showFull = false
             }
             .drawingGroup()
-            if(self.showIndicator) {
-                IndicatorPoint()
-                    .position(self.getClosestPointOnPath(touchLocation: self.touchLocation))
-                    .rotationEffect(.degrees(180), anchor: .center)
+            ForEach(self.indicatorPoints) { point in
+                point.rotationEffect(.degrees(180), anchor: .center)
                     .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
             }
         }
     }
-    
-    func getClosestPointOnPath(touchLocation: CGPoint) -> CGPoint {
-        let closest = self.path.point(to: touchLocation.x)
-        return closest
-    }
-    
 }
 
 struct Line_Previews: PreviewProvider {
     static var previews: some View {
-        GeometryReader{ geometry in
-            Line(data: ChartData(points: [12,-230,10,54]), frame: .constant(geometry.frame(in: .local)), touchLocation: .constant(CGPoint(x: 100, y: 12)), showIndicator: .constant(true), minDataValue: .constant(nil), maxDataValue: .constant(nil))
-        }.frame(width: 320, height: 160)
+        Group {
+            GeometryReader{ geometry in
+                Line(data: ChartData(points: [84.0,83.8,83.6,84.0,83.8,83.6]), frame: .constant(geometry.frame(in: .local)))
+            }.frame(width: 320, height: 160)
+        }
     }
 }

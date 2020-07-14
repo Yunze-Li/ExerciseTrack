@@ -14,10 +14,9 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            VStack(){
-                WeightLineChartView()
-                Spacer()
-                Spacer(minLength: 20)
+            VStack(alignment: .center){
+                WeightLineChartView(data: container.records.map{record in record.getWeightValue()})
+                Spacer(minLength: 10)
                 List {
                     ForEach(container.records.indexed(), id: \.1.id) { index, record in
                         NavigationLink(destination: ExerciseDetail(record: self.$container.records[index], container: self.container)) {
@@ -45,7 +44,7 @@ class PreviewExerciseDataRepository: ExerciseRecordRepository {
     func updateExerciseRecord(exerciseRecord: ExerciseRecord) {}
     func removeExerciseRecordByItem(targetExerciseRecord: ExerciseRecord) {}
     func removeExerciseRecordById(recordId: String) {}
-    func getExerciseRecords() -> [ExerciseRecord] { return TestDataUtil().getPreviewExerciseRecords(count: 20) }
+    func getExerciseRecords() -> [ExerciseRecord] { return TestDataUtil().getPreviewExerciseRecords(count: 10) }
 }
 
 struct ContentView_Previews: PreviewProvider {

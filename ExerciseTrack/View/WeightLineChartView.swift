@@ -9,14 +9,30 @@
 import SwiftUI
 
 struct WeightLineChartView: View {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    private var data: [Double]
+    private var darkModeStyle: ChartStyle
+    private var style: ChartStyle
+    init(data: [Double],
+         style: ChartStyle = Styles.lineChartStyleOne) {
+        self.data = data
+        self.darkModeStyle = style.darkModeStyle != nil ? style.darkModeStyle! : Styles.lineViewDarkMode
+        self.style = style
+    }
+    
     var body: some View {
-        LineView(data: [84.0,83.8,83.6,84.0,83.8,83.6]).padding()
-        .frame(minHeight: 160, idealHeight: 160, maxHeight: 160, alignment: .center)
+        ZStack(alignment: .center) {
+            RoundedRectangle(cornerRadius: 20)
+                .fill(self.colorScheme == .dark ? self.darkModeStyle.backgroundColor : self.style.backgroundColor)
+                .frame(height: 240, alignment: .center)
+                .shadow(color: self.style.dropShadowColor, radius: 8)
+            LineView(data: self.data, paddingTop: 40.0, paddingBottom: 40.0).padding()
+        }.frame(height: 240, alignment: .center)
     }
 }
 
 struct WeightLineChartView_Previews: PreviewProvider {
     static var previews: some View {
-        WeightLineChartView()
+        WeightLineChartView(data: [84.0,83.7,83.6,84.1,83.8,83.6])
     }
 }

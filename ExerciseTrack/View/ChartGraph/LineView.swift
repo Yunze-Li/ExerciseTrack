@@ -1,9 +1,9 @@
 //
 //  LineView.swift
-//  LineChart
+//  ExerciseTrack
 //
-//  Created by András Samu on 2019. 09. 02..
-//  Copyright © 2019. András Samu. All rights reserved.
+//  Created by Yunze Li on 13/07/2020.
+//  Copyright © 2020 Arctos. All rights reserved.
 //
 
 import SwiftUI
@@ -14,7 +14,9 @@ public struct LineView: View {
     public var legend: String?
     public var style: ChartStyle
     public var darkModeStyle: ChartStyle
-    public var valueSpecifier:String
+    public var valueSpecifier: String
+    public var paddingTop: Double
+    public var paddingBottom: Double
     
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     @State private var showLegend = false
@@ -29,7 +31,9 @@ public struct LineView: View {
                 title: String? = nil,
                 legend: String? = nil,
                 style: ChartStyle = Styles.lineChartStyleOne,
-                valueSpecifier: String? = "%.1f") {
+                valueSpecifier: String? = "%.1f",
+                paddingTop: Double = 30,
+                paddingBottom: Double = 30) {
         
         self.data = ChartData(points: data)
         self.title = title
@@ -37,6 +41,8 @@ public struct LineView: View {
         self.style = style
         self.valueSpecifier = valueSpecifier!
         self.darkModeStyle = style.darkModeStyle != nil ? style.darkModeStyle! : Styles.lineViewDarkMode
+        self.paddingTop = paddingTop
+        self.paddingBottom = paddingBottom
     }
     
     public var body: some View {
@@ -65,29 +71,21 @@ public struct LineView: View {
                                 .animation(Animation.easeOut(duration: 1).delay(1))
                         }
                         Line(data: self.data,
-                             frame: .constant(CGRect(x: 0, y: 0, width: reader.frame(in: .local).width - 30, height: reader.frame(in: .local).height)),
-                             touchLocation: self.$indicatorLocation,
-                             showIndicator: self.$hideHorizontalLines,
-                             minDataValue: .constant(nil),
-                             maxDataValue: .constant(nil),
+                             frame: .constant(CGRect(x: 0, y: 0, width: reader.frame(in: .local).width, height: reader.frame(in: .local).height)),
                              showBackground: false,
+                             paddingTop: CGFloat(self.paddingTop),
+                             paddingBottom: CGFloat(self.paddingBottom),
                              gradient: self.style.gradientColor
                         )
-                        .offset(x: 30, y: -20)
-                        .onAppear(){
-                            self.showLegend = true
+                            .onAppear(){
+                                self.showLegend = true
                         }
                         .onDisappear(){
                             self.showLegend = false
                         }
                     }
                     .frame(width: geometry.frame(in: .local).size.width, height: 160)
-                    .offset(x: 0, y: 40 )
-                    MagnifierRect(currentNumber: self.$currentDataNumber, valueSpecifier: self.valueSpecifier)
-                        .opacity(self.opacity)
-                        .offset(x: self.dragLocation.x - geometry.frame(in: .local).size.width/2, y: 36)
                 }
-                .frame(width: geometry.frame(in: .local).size.width, height: 240)
                 .gesture(DragGesture()
                 .onChanged({ value in
                     self.dragLocation = value.location
@@ -124,10 +122,7 @@ struct LineView_Previews: PreviewProvider {
         Group {
             LineView(data: [84.0,83.8,83.6,84.0,83.8,83.6], style: Styles.lineChartStyleOne)
             
-            LineView(data: [8,23,54,32,12,37,7,23,43], title: "Full chart", style: Styles.lineChartStyleOne)
-            
-            LineView(data: [282.502, 284.495, 283.51, 285.019, 285.197, 286.118, 288.737, 288.455, 289.391, 287.691, 285.878, 286.46, 286.252, 284.652, 284.129, 284.188], title: "Full chart", style: Styles.lineChartStyleOne)
-            
+//            LineView(data: [84.0,83.8,83.6,84.0,83.8,83.6,83.8,83.1,82.8,83.2,83.4,83.5,83.1,82.9,82.4], style: Styles.lineChartStyleOne)
         }
     }
 }
