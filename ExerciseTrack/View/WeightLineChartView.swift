@@ -24,10 +24,10 @@ struct WeightLineChartView: View {
         ZStack(alignment: .center) {
             RoundedRectangle(cornerRadius: 20)
                 .fill(self.colorScheme == .dark ? self.darkModeStyle.backgroundColor : self.style.backgroundColor)
-                .frame(height: 240, alignment: .center)
+                .frame(height: 200, alignment: .center)
                 .shadow(color: self.style.dropShadowColor, radius: 8)
             LineView(data: self.data, paddingTop: 40.0, paddingBottom: 40.0).padding()
-        }.frame(height: 240, alignment: .center)
+        }.frame(height: 200, alignment: .center)
     }
 }
 

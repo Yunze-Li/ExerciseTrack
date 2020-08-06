@@ -16,7 +16,6 @@ struct ContentView: View {
         NavigationView {
             VStack(alignment: .center){
                 WeightLineChartView(data: container.records.map{record in record.getWeightValue()})
-                Spacer(minLength: 10)
                 List {
                     ForEach(container.records.indexed(), id: \.1.id) { index, record in
                         NavigationLink(destination: ExerciseDetail(record: self.$container.records[index], container: self.container)) {
